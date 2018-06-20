@@ -1,0 +1,124 @@
+﻿@model List<LiveFactory.Web.Domain.LiveChannel>
+
+@section Css{
+    <link href="~/css/swiper.min.css" rel="stylesheet" />
+    <link href="~/css/neplayer.min.css" rel="stylesheet" />
+    <script src="~/js/neplayer.min.js"></script>
+    @*<link href="//nos.netease.com/vod163/nep.min.css" rel="stylesheet">*@
+    <style>
+        .swiper-container {
+            width: 1000px;
+            height: 190px;
+            margin: 0 auto;
+            padding-right: 30px;
+        }
+
+        .swiper-slide:first-child {
+            margin-left: 30px;
+        }
+    </style>
+}
+
+<div class="title">
+    <p class="name">共享工厂</p>
+    <div class="border"></div>
+    <p class="poster">最优秀的首饰制作直播平台</p>
+</div>
+<div id="video_main">
+    <div class="top">
+        @*<video  id="my-video" src="http://www.runoob.com/try/demo_source/movie.mp4" class="v-tech"  preload="auto" width="640" height="360" data-setup='{}' controls autobuffer>
+                <source src="http://www.runoob.com/try/demo_source/movie.mp4" class="s-tech" type="video/mp4">
+            </video>*@
+        <video id="my-video" class="video-js v-tech" x-webkit-airplay="allow" webkit-playsinline controls poster="/images/PlayerLogo.png" preload="auto" width="640" height="360" data-setup="{}">
+            <source src="#" class="s-tech" type="video/mp4" id="my-source">
+        </video>
+    </div>
+    <div class="bottom clearfix">
+        @foreach (var item in Model)
+        {
+            <div class="list curr" data-value="@item.Url" data-type="@Convert.ToInt32(item.VideoType)">
+                @if (!string.IsNullOrEmpty(item.Image) && item.Image.Length > 0)
+                {
+                    <img class="list-img" src="@item.Image.ToString()" />
+                }
+                else
+                {
+                    <img class="list-img" src="/images/share/work.png" />
+                }
+                <p class="prowork">@item.Name</p>
+            </div>
+        }
+
+        @*<div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            @foreach (var item in Model)
+                {
+
+                        <div class="swiper-slide">
+                            <div class="list curr" data-value="@item.Url" data-type="@Convert.ToInt32(item.VideoType)">
+                                @if (!string.IsNullOrEmpty(item.Image) && item.Image.Length > 0)
+                {
+                            <img class="list-img" src="@item.Image.ToString()" />
+            }
+            else
+            {
+                            <img class="list-img" src="/images/share/work.png" />
+            }
+                                <p class="prowork">@item.Name</p>
+                            </div>
+                        </div>
+
+            }
+                        </div>
+                    </div>*@
+    </div>
+</div>
+@section Scripts{
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            disabledClass: 'my-button-disabled',
+            slidesPerView: 7,
+            paginationClickable: true,
+            spaceBetween: 15,
+            parallax: true,
+            speed: 100,
+        });
+        $(function () {
+            var _url = $(".curr").data("value");
+            var type = $(".curr").data("type");
+            //// 点击按钮设置播放地址
+            //neplayer('my-video').setDataSource({ src: _url, type: "video/mp4" });
+            Playing(_url, type);
+        })
+        $(".list").click(function () {
+            $(".list").removeClass("curr");
+            $(this).addClass("curr");
+            var _url = $(this).data("value");
+            var _type = parseInt($(this).data("type"));
+            Playing(_url, _type);
+        });
+        var nPlay = neplayer("my-video", {
+            "autoplay": false,
+            "preload": "auto"
+        }, function () {
+
+        });
+        function Playing(url, type) {
+            var _type = "";
+            switch (type) {
+                case 1: _type = "@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.mp4)"; break;
+                case 2: _type = "@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.x_flv)"; break;
+                case 3: _type = "@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.flv2)"; break;
+                case 4: _type = "@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.mpegURL)"; break;
+            }
+            nPlay.setDataSource({
+                type: _type,
+                src: url
+            });
+            nPlay.play();
+        }
+    </script>
+}

@@ -1,0 +1,11 @@
+2018-05-24 18:32:05.7401|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-24 18:32:05.8832|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory'); 
+2018-05-24 18:32:05.8832|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory'); 
+2018-05-24 18:32:05.9089|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2018-05-24 18:32:05.9255|Microsoft.EntityFrameworkCore.Migrations|INFO|No migrations were applied. The database is already up to date. 
+2018-05-24 18:32:06.1722|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 

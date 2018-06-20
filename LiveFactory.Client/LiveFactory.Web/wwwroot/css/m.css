@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fb {
+    font-weight: bold;
+}
+
+li, ol {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    color: #333333;
+    background-color: #f5f5f5;
+    overflow-y: auto;
+    font-size: 0.28rem;
+}
+
+#videoBox {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    z-index: 9;
+}
+
+    #videoBox.small {
+        width: 60%;
+        position: fixed;
+        top: 15px;
+        right: 5px;
+        left: auto;
+        border-radius: 10px;
+    }
+
+#my-video {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#videoTXT {
+    position: absolute;
+    left: 0.42rem;
+    top: 0.18rem;
+    color: #fff;
+    z-index: 9;
+}
+
+.small #videoTXT {
+    display: none;
+}
+
+#descBox {
+    position: relative;
+    height: 1.7rem;
+    overflow: hidden;
+    font-size: 0.28rem;
+}
+
+#desc-m {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    padding-top: 20px;
+    bottom: 0;
+    background: -webkit-gradient(linear, 0 0, 0 20, from(rgba(0, 0, 0, 0)), to(#f5f5f5));
+    text-align: center;
+    color: #3966ee;
+}
+
+#desc-d {
+    display: none;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    text-align: center;
+    color: #3966ee;
+}
+
+#container {
+    padding: 0.25rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#moreBox h3 {
+    color: #3966ee;
+    padding-left: 0.38rem;
+    background: url(../images/icon-1.png) left center no-repeat;
+    background-size: 0.32rem;
+    font-size: 0.32rem
+}
+
+#list {
+    overflow: hidden;
+    margin-top: 0.18rem;
+}
+
+    #list .item {
+        width: 3.4rem;
+        height: auto;
+        margin-bottom: 0.22rem;
+        box-sizing: border-box;
+        border-radius: 0.15rem;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+        #list .item img {
+            display: block;
+            height: 2.1rem;
+            width: 100%;
+        }
+
+        #list .item:nth-child(2n+1) {
+            float: left;
+        }
+
+        #list .item:nth-child(2n+2) {
+            float: right;
+        }
+
+        #list .item p {
+            font-size: 0.24rem;
+        }
+
+            #list .item p.title {
+                height: 0.64rem;
+                font-size: 0.24rem;
+                margin: 0.1rem 0.15rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                -webkit-line-clamp: 2;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            #list .item p.arts {
+                margin-left: 0.15rem;
+                color: #666666;
+                font-size: 0.2rem;
+                font-weight: 700;
+            }
+
+            #list .item p.play {
+                height: 0.28rem;
+                line-height: 0.28rem;
+                float: right;
+                margin-bottom: 0.15rem;
+                margin-right: 0.15rem;
+                padding-right: 0.42rem;
+                color: #666666;
+                background: url(../images/icon-2.png) right bottom no-repeat;
+                background-size: 0.3rem;
+            }
+
+#tips {
+    margin-top: 0.3rem;
+    text-align: center;
+    border-top: 1px solid #E5E5E5;
+}
+
+    #tips span {
+        position: relative;
+        top: -0.22rem;
+        padding: 0.1rem 0.2rem;
+        background-color: #f5f5f5;
+        color: #808080;
+    }

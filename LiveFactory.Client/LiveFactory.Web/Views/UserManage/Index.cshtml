@@ -1,0 +1,202 @@
+﻿@{
+    ViewData["Title"] = "用户管理";
+}
+
+<section class="content" id="UserManage">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body" v-cloak>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="dataTables_length" id="example1_length">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" class="form-control pull-right" placeholder="关键字" v-model="searchParam.KeyWord">
+
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default" v-on:click="GetData()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editAdvertModel" v-on:click="addModel()"><i class="fa fa-plus"></i> 新增</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <el-table :data="DataList" border>
+                                    @*<el-table-column width="100" label="展示图片">
+            <template slot-scope="scope">
+                <img v-if="scope.row.image!=null && scope.row.image!=''" width="90" height="90" :src="scope.row.image" />
+            </template>
+        </el-table-column>*@
+                                    <el-table-column type="index"></el-table-column>
+                                    <el-table-column prop="account" label="名称"></el-table-column>
+                                    <el-table-column prop="lastTime" label="最后登录时间"></el-table-column>
+                                    <el-table-column prop="lastIP" label="最后登录ip"></el-table-column>
+                                    @*<el-table-column prop="isDisabled" label="是否禁用"></el-table-column>*@
+                                    <el-table-column prop="isDisabled" label="是否禁用">
+                                        <template slot-scope="haha">
+                                            <label v-if="haha.row.isDisabled===true"><span class="label label-danger">已禁用</span></label>
+                                            <label v-else-if="haha.row.isDisabled===false"><span class="label label-success">未禁用</span></label>
+                                            <label v-else>error</label>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="操作">
+                                        <template slot-scope="scope">
+                                            <el-button size="mini" v-on:click="editModel(scope.row)">
+                                                <i class="fa fa-edit"></i>修改
+                                            </el-button>
+                                            <el-button size="mini" type="danger" v-on:click="deleteModel(scope.row)">
+                                                <i class="fa fa-trash-o"></i>删除
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info"></div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <el-pagination @@current-change="GetData" :current-page.sync="searchParam.PageIndex" :page-size="searchParam.ResultCount" layout="prev, pager, next,total" :total="TotalCount">
+                                    </el-pagination>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+
+    <el-dialog title="编辑用户"
+               :visible.sync="dialogVisible"
+               width="40%">
+        <el-form ref="SelectModel" :model="SelectModel" label-width="80px">
+            <el-form-item label="账户">
+                <el-input v-model="SelectModel.account"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input v-model="SelectModel.password" type="password"></el-input>
+            </el-form-item>
+            <el-form-item label="是否禁用">
+                <el-switch v-model="SelectModel.isDisabled"></el-switch>
+            </el-form-item>
+        </el-form>
+        @*<div class="form-group">
+            </div>*@
+
+        <span slot="footer" class="dialog-footer">
+            <el-button @@click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @@click="submitModel">确 定</el-button>
+        </span>
+    </el-dialog>
+</section>
+
+@section scripts{
+    <script>
+        var userManage = new Vue({
+            el: "#UserManage",
+                data: {
+                    searchParam: { KeyWord: "", PageIndex: 1, SkipCount: 1, ResultCount: 30 },
+                    DataList: [],
+                    SelectModel: {},
+                    TotalCount: 0,
+                    uploadParam: { filetype: '@LiveFactory.Core.FileType.video' },
+                    saveFileUrl: "",
+                    dialogVisible: false
+                },
+            methods: {
+                GetData: function () {
+                    $.ajax({
+                        url: '@Url.Action("GetList", "UserManage")',
+                        type: "post",
+                        data: userManage.searchParam,
+                        success: function (res) {
+                            userManage.DataList = res.data.items;
+                            userManage.TotalCount = res.data.totalCount;
+                        }
+                    })
+                },
+                addModel: function () {
+                    this.dialogVisible = true;
+                    this.SelectModel = { id: 0, imageUrl: '' };
+                },
+                submitModel: function () {
+                    if (this.SelectModel.password == "") {
+                        userManage.$message({
+                            type: 'error',
+                            message: ''
+                        });
+                        return;
+                    }
+                    $.ajax({
+                        url: "/UserManage/InsertOrUpdate",
+                        type: "post",
+                        data: userManage.SelectModel,
+                        success: function (res) {
+                            userManage.dialogVisible = false;
+                            userManage.$message({
+                                type: 'success',
+                                message: '添加成功!'
+                            });
+                            userManage.GetData();
+                        }
+                    });
+                },
+                editModel: function (item) {
+                    item.password = "";
+                    this.SelectModel = item;
+                    this.dialogVisible = true;
+                    //$('#editAdvertModel').showModal();
+                },
+                deleteModel: function (item) {
+                    this.$confirm('您确定要执行操作吗?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: "/UserManage/DeleteVideoById",
+                            type: "post",
+                            data: { id: item.id },
+                            success: function () {
+                                userManage.$message({
+                                    type: 'success',
+                                    message: '删除成功!'
+                                });
+                                userManage.GetData();
+                            }
+                        });
+                    });
+                },
+                //deleteImage: function () {
+                //    this.SelectModel.url = "";
+                //},
+                //handleRemove(file, fileList) {
+                //    this.saveFileUrl = "";
+                //},
+                //uploadSuccess: function (response, file, fileList) {
+                //    this.SelectModel.url = response.fileName;
+                //},
+                //uploadError: function (err, file, fileList) {
+                //    com.error("上传失败,请检查你的文件类型是否正确.");
+                //}
+            }
+        });
+        $(function () {
+            userManage.GetData();
+         });
+    </script>
+}

@@ -1,0 +1,260 @@
+﻿@{
+    ViewBag.Title = "直播频道管理";
+}
+@section Css{
+    <style>
+        #liveChannel input[type=file] {
+            display: none
+        }
+    </style>
+}
+<section class="content" id="liveChannel">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body" v-cloak>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="dataTables_length" id="example1_length">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" class="form-control pull-right" placeholder="关键字" v-model="searchParam.KeyWord">
+
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default" v-on:click="GetData()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editAdvertModel" v-on:click="addModel()"><i class="fa fa-plus"></i> 新增</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <el-table :data="DataList" border>
+                                    <el-table-column width="100" label="展示图片">
+                                        <template slot-scope="scope">
+                                            <img v-if="scope.row.image!=null && scope.row.image!=''" width="90" height="90" :src="scope.row.image" />
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column prop="factoryName" label="工厂名称"></el-table-column>
+                                    <el-table-column prop="name" label="名称"></el-table-column>
+                                    <el-table-column prop="factoryCode" label="工厂代号"></el-table-column>
+                                    <el-table-column prop="index" label="频道排序"></el-table-column>
+                                    @*<el-table-column label="连接数"></el-table-column>
+                                    <el-table-column label="控制"></el-table-column>*@
+                                    <el-table-column label="状态" prop="stateName" ></el-table-column>
+                                    <el-table-column label="操作">
+                                        <template slot-scope="scope">
+                                            <a class="btn btn-default btn-xs" v-on:click="detail(scope.row)"><i class="fa fa-edit"></i>修改详情</a>
+                                            @*<a class="btn btn-default btn-xs" v-on:click="editModel(scope.row)"><i class="fa fa-edit"></i>修改</a>*@
+                                            <a class="btn btn-default btn-xs" title="删除" v-on:click="deleteModel(scope.row)"><i class="fa fa-trash-o"></i>删除</a>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info"></div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <el-pagination @@current-change="GetData" :current-page.sync="searchParam.PageIndex" :page-size="searchParam.ResultCount" layout="prev, pager, next,total" :total="TotalCount">
+                                    </el-pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+    @*<el-dialog title="编辑直播频道"
+               :visible.sync="dialogVisible"
+               width="50%" :before-close="cancelSubmit">
+        <el-form ref="SelectModel" :model="SelectModel" label-width="80px">
+            <el-form-item label="名称">
+                <el-input v-model="SelectModel.name"></el-input>
+            </el-form-item>
+            <div class="row">
+                <div class="col-md-6">
+                    <el-form-item label="循环播放">
+                        <el-switch v-model="SelectModel.bannedVideoLoop"></el-switch>
+                    </el-form-item>
+                </div>
+                <div class="col-md-6">
+                    <el-form-item label="是否禁用">
+                        <el-switch v-model="SelectModel.disabled"></el-switch>
+                    </el-form-item>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <el-form-item label="切换间隔">
+                        <el-time-picker v-model="SelectModel.playInterval" type="fixed-time" placeholder="选择时间">
+                        </el-time-picker>
+                    </el-form-item>
+                </div>
+                <div class="col-md-6">
+                    <el-form-item label="拉流间隔">
+                        <el-time-picker v-model="SelectModel.pullInterval" type="fixed-time" placeholder="选择时间">
+                        </el-time-picker>
+                    </el-form-item>
+                </div>
+            </div>
+            <el-form-item label="工厂名称">
+                <el-input v-model="SelectModel.factoryName"></el-input>
+            </el-form-item>
+            <el-form-item label="工厂代号">
+                <el-input v-model="SelectModel.factoryCode"></el-input>
+            </el-form-item>
+            <el-form-item label="推流地址">
+                <el-input v-model="SelectModel.pushUrl"></el-input>
+            </el-form-item>
+            <el-form-item label="错误Url">
+                <errvideo-select v-model="SelectModel.errPlayUrl"></errvideo-select>
+            </el-form-item>
+            <el-form-item label="频道排序">
+                <el-input-number v-model="SelectModel.index" controls-position="right" :min="1" :max="9999"></el-input-number>
+            </el-form-item>
+            <el-form-item label="展示图片">
+                <el-upload class="upload-demo"
+                           drag
+                           action="/UploadFile/Index"
+                           :data="{ filetype: '@LiveFactory.Core.FileType.image'}"
+                           :on-success="uploadSuccess" :on-error="uploadError"
+                           multiple>
+                    <i class="el-icon-upload"></i>
+                    <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                    <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
+                </el-upload>
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button @@click="cancelSubmit">取 消</el-button>
+            <el-button type="primary" @@click="submitModel">确 定</el-button>
+        </span>
+    </el-dialog>*@
+</section>
+@section scripts{
+    <script>
+        var liveChannel = new Vue({
+            el: "#liveChannel",
+            data: {
+                searchParam: { KeyWord: "", PageIndex: 1, SkipCount: 1, ResultCount: 30 },
+                DataList: [],
+                SelectModel: {},
+                TotalCount: 0,
+                saveFileUrl: "",
+                dialogVisible: false,
+                oldPlayInterval: null,
+                oldPullInterval: null
+            },
+            methods: {
+                GetData: function () {
+                    $.ajax({
+                        url: "/LiveChannel/GetLiveChannelPageList",
+                        type: "post",
+                        data: liveChannel.searchParam,
+                        success: function (res) {
+                            liveChannel.DataList = res.data.items;
+                            liveChannel.TotalCount = res.data.totalCount;
+                        }
+                    });
+                },
+                addModel: function () {
+                    //this.dialogVisible = true;
+                    //this.SelectModel = { id: 0, imageUrl: '', index: 1 };
+                    window.location.href = "/LiveChannel/Detail";
+                },
+               
+                editModel: function (item) {
+                    this.SelectModel = item;
+                    if (this.SelectModel.playInterval != null) {
+                        this.oldPlayInterval = this.SelectModel.playInterval;
+                    }
+                    if (this.SelectModel.pullInterval != null) {
+                        this.oldPullInterval = this.SelectModel.pullInterval;
+                    }
+                    this.SelectModel.pullInterval = null;
+                    this.SelectModel.playInterval = null;
+                    this.dialogVisible = true;
+                },
+                cancelSubmit: function () {
+                    this.dialogVisible = false;
+                    this.SelectModel = {};
+                    liveChannel.GetData();
+                },
+                deleteModel: function (item) {
+                    this.$confirm('您确定要执行操作吗?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: "/LiveChannel/DeleteLiveChannelById",
+                            type: "post",
+                            data: { id: item.id },
+                            success: function () {
+                                liveChannel.$message({
+                                    type: 'success',
+                                    message: '删除成功!'
+                                });
+                                liveChannel.GetData();
+                            }
+                        });
+                    });
+                },
+                uploadSuccess: function (response, file, fileList) {
+                    this.SelectModel.image = response.data.fileName;
+                    liveChannel.$message({
+                        type: 'success',
+                        message: '上传成功!'
+                    });
+                },
+                uploadError: function (err, file, fileList) {
+                    this.$message({
+                        type: 'error',
+                        message: '上传失败,请检查你的文件类型是否正确.'
+                    })
+                },
+                detail: function (item) {
+                    window.location.href = "/LiveChannel/Detail/" + item.id;
+                }
+
+            }
+        });
+
+        $(function () {
+            liveChannel.GetData();
+        });
+
+        Date.prototype.format = function (format) {
+            var o = {
+                "M+": this.getMonth() + 1,
+                "d+": this.getDate(),
+                "h+": this.getHours(),
+                "m+": this.getMinutes(),
+                "s+": this.getSeconds(),
+                "q+": Math.floor((this.getMonth() + 3) / 3),
+                "S": this.getMilliseconds()
+            }
+            if (/(y+)/.test(format)) {
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(format)) {
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+                }
+            }
+            return format;
+        }
+    </script>
+}

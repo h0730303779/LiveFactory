@@ -1,0 +1,708 @@
+2018-05-21 09:42:21.3880|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:22.1235|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:22.2430|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:22.5456|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:22.6317|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:22.6766|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:25.3739|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:25.7630|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 3977.3108ms 
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/common.css   
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/swiper.min.css   
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/jquery-1.10.2.min.js   
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/share.css   
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/html5media.min.js   
+2018-05-21 09:42:25.8194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/share.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\share.css' 
+2018-05-21 09:42:25.8194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/html5media.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\html5media.min.js' 
+2018-05-21 09:42:25.8194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/jquery-1.10.2.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\jquery-1.10.2.min.js' 
+2018-05-21 09:42:25.8362|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 22.207ms 200 text/css 
+2018-05-21 09:42:25.8009|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4443.965ms 200 text/html; charset=utf-8 
+2018-05-21 09:42:25.8362|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 31.1247ms 200 application/javascript 
+2018-05-21 09:42:25.8194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/common.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\common.css' 
+2018-05-21 09:42:25.8194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/swiper.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\swiper.min.css' 
+2018-05-21 09:42:25.8515|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 55.5118ms 200 application/javascript 
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 62.5212ms 200 text/css 
+2018-05-21 09:42:25.8515|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 50.7951ms 200 text/css 
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/neplayer.min.css   
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/neplayer.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\neplayer.min.css' 
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js   
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/swiper.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\swiper.min.js' 
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/neplayer.min.js   
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/neplayer.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\neplayer.min.js' 
+2018-05-21 09:42:25.8643|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 8.5355ms 200 text/css 
+2018-05-21 09:42:25.8883|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 17.7464ms 200 application/javascript 
+2018-05-21 09:42:25.8969|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 23.4123ms 200 application/javascript 
+2018-05-21 09:42:25.8969|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/PlayerLogo.png   
+2018-05-21 09:42:25.8969|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/images/PlayerLogo.png'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\images\PlayerLogo.png' 
+2018-05-21 09:42:25.9126|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 11.3186ms 200 image/png 
+2018-05-21 09:42:25.9126|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 09:42:25.9126|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.5093ms 404  
+2018-05-21 09:42:26.1870|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:26.1870|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:26.1951|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:26.1951|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:26.1951|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:26.2098|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:26.2098|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:26.2098|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 27.3321ms 
+2018-05-21 09:42:26.2098|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 34.549ms 200 text/html; charset=utf-8 
+2018-05-21 09:42:26.6193|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/favicon.ico   
+2018-05-21 09:42:26.6193|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.897ms 404  
+2018-05-21 09:42:28.5609|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js.map   
+2018-05-21 09:42:28.5609|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.6472ms 404  
+2018-05-21 09:42:45.3947|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:45.3947|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:45.3947|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:45.3947|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:45.4216|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:45.4216|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:45.4292|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:45.4292|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 35.1048ms 
+2018-05-21 09:42:45.4292|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 38.3547ms 200 text/html; charset=utf-8 
+2018-05-21 09:42:45.4693|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 09:42:45.4727|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.3907ms 404  
+2018-05-21 09:42:45.6910|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js.map   
+2018-05-21 09:42:45.6910|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.0218ms 404  
+2018-05-21 09:42:45.7226|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:45.7253|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:45.7253|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:45.7253|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:45.7253|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:45.7253|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:45.7396|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:45.7396|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 16.6746ms 
+2018-05-21 09:42:45.7396|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 18.63ms 200 text/html; charset=utf-8 
+2018-05-21 09:42:49.5667|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:49.5667|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:49.5667|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:49.5667|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:49.5667|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:49.5667|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:49.5851|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:49.5851|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 18.6311ms 
+2018-05-21 09:42:49.5851|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 20.7126ms 200 text/html; charset=utf-8 
+2018-05-21 09:42:49.8119|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 09:42:49.8119|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.1523ms 404  
+2018-05-21 09:42:50.1635|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:42:50.1635|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:42:50.1635|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:42:50.1635|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:42:50.1782|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:42:50.1782|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:42:50.1782|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:42:50.1782|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 21.9645ms 
+2018-05-21 09:42:50.1782|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 23.5705ms 200 text/html; charset=utf-8 
+2018-05-21 09:44:02.7153|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:44:02.7153|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:44:02.7153|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:44:02.7240|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:44:02.7240|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:44:02.7240|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:44:02.8939|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:44:02.9264|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 209.84ms 
+2018-05-21 09:44:02.9264|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 211.9594ms 200 text/html; charset=utf-8 
+2018-05-21 09:44:02.9749|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/jquery-1.10.2.min.js   
+2018-05-21 09:44:02.9749|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/jquery-1.10.2.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\jquery-1.10.2.min.js' 
+2018-05-21 09:44:02.9749|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/common.css   
+2018-05-21 09:44:02.9749|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/common.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\common.css' 
+2018-05-21 09:44:02.9749|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 7.4301ms 200 application/javascript 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 15.1375ms 200 text/css 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/swiper.min.css   
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/swiper.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\swiper.min.css' 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.0183ms 200 text/css 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/html5media.min.js   
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/html5media.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\html5media.min.js' 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 11.8441ms 200 application/javascript 
+2018-05-21 09:44:02.9887|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/share.css   
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/share.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\share.css' 
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js   
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/swiper.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\swiper.min.js' 
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 23.0151ms 200 text/css 
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/neplayer.min.css   
+2018-05-21 09:44:03.0253|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/neplayer.min.js   
+2018-05-21 09:44:03.0253|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/neplayer.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\neplayer.min.js' 
+2018-05-21 09:44:03.0112|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.4064ms 200 application/javascript 
+2018-05-21 09:44:03.0253|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/neplayer.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\neplayer.min.css' 
+2018-05-21 09:44:03.0370|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 19.8811ms 200 text/css 
+2018-05-21 09:44:03.0370|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 11.6768ms 200 application/javascript 
+2018-05-21 09:44:03.0370|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/PlayerLogo.png   
+2018-05-21 09:44:03.0370|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/images/PlayerLogo.png'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\images\PlayerLogo.png' 
+2018-05-21 09:44:03.0370|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.3321ms 200 image/png 
+2018-05-21 09:44:03.0584|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 09:44:03.0584|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.7245ms 404  
+2018-05-21 09:44:03.2594|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:44:03.2594|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:44:03.2594|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:44:03.2594|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:44:03.2594|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:44:03.2706|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:44:03.2706|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:44:03.2706|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 14.4289ms 
+2018-05-21 09:44:03.2706|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 16.0247ms 200 text/html; charset=utf-8 
+2018-05-21 09:44:03.6339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/favicon.ico   
+2018-05-21 09:44:03.6339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.2344ms 404  
+2018-05-21 09:44:07.5535|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js.map   
+2018-05-21 09:44:07.5535|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.1272ms 404  
+2018-05-21 09:44:17.8380|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:44:17.8380|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:44:17.8380|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:44:17.8380|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:44:17.8380|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:44:17.8493|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:44:17.8493|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:44:17.8493|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 12.6719ms 
+2018-05-21 09:44:17.8493|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 13.9731ms 200 text/html; charset=utf-8 
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/swiper.min.css   
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/swiper.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\swiper.min.css' 
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/jquery-1.10.2.min.js   
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/jquery-1.10.2.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\jquery-1.10.2.min.js' 
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/common.css   
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/common.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\common.css' 
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4.3359ms 200 application/javascript 
+2018-05-21 09:44:17.8848|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4.9839ms 200 text/css 
+2018-05-21 09:44:17.8983|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 10.811ms 200 text/css 
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/html5media.min.js   
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/html5media.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\html5media.min.js' 
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/share.css   
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/share.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\share.css' 
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.0458ms 200 text/css 
+2018-05-21 09:44:17.9194|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.9804ms 200 application/javascript 
+2018-05-21 09:44:17.9264|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js   
+2018-05-21 09:44:17.9264|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/swiper.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\swiper.min.js' 
+2018-05-21 09:44:17.9264|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/neplayer.min.js   
+2018-05-21 09:44:17.9419|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/js/neplayer.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\js\neplayer.min.js' 
+2018-05-21 09:44:17.9419|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 13.9563ms 200 application/javascript 
+2018-05-21 09:44:17.9419|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 7.4611ms 200 application/javascript 
+2018-05-21 09:44:17.9264|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/neplayer.min.css   
+2018-05-21 09:44:17.9587|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/neplayer.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\neplayer.min.css' 
+2018-05-21 09:44:17.9587|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 33.8915ms 200 text/css 
+2018-05-21 09:44:17.9587|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/PlayerLogo.png   
+2018-05-21 09:44:17.9587|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/images/PlayerLogo.png'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\images\PlayerLogo.png' 
+2018-05-21 09:44:17.9746|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 5.4113ms 200 image/png 
+2018-05-21 09:44:17.9746|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 09:44:17.9746|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.3088ms 404  
+2018-05-21 09:44:18.2467|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/js/swiper.min.js.map   
+2018-05-21 09:44:18.2467|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.1917ms 404  
+2018-05-21 09:44:18.2621|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 09:44:18.2621|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 09:44:18.2621|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 09:44:18.2621|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 09:44:18.2703|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 09:44:18.2703|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 09:44:18.2703|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 09:44:18.2703|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 12.7908ms 
+2018-05-21 09:44:18.2703|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 14.5846ms 200 text/html; charset=utf-8 
+2018-05-21 13:44:58.8221|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 13:44:59.5470|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:44:59.6255|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:44:59.9328|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 13:45:00.0226|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 13:45:00.0694|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 13:45:02.7124|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 13:45:03.1061|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 3886.2383ms 
+2018-05-21 13:45:03.1349|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4338.8366ms 200 text/html; charset=utf-8 
+2018-05-21 13:45:03.2196|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 13:45:03.2229|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.3374ms 404  
+2018-05-21 13:45:03.5478|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/   
+2018-05-21 13:45:03.5562|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:45:03.5562|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:45:03.5757|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[BannedVideoLoop], [w].[CreateTime], [w].[CreateUserId], [w].[Disabled], [w].[ErrPlayUrl], [w].[FactoryCode], [w].[FactoryName], [w].[Image], [w].[Index], [w].[LastModifyTime], [w].[LastModifyUserId], [w].[Name], [w].[PlayInterval], [w].[PullInterval], [w].[PushUrl], [w].[State], [w].[VideoId]
+FROM [LiveChannels] AS [w]
+WHERE [w].[Disabled] = 0 
+2018-05-21 13:45:03.5757|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [w].[Id], [w].[ChannelId], [w].[CreateTime], [w].[CreateUserId], [w].[Name], [w].[PlayUrl], [w].[Type]
+FROM [PlayInfos] AS [w]
+WHERE [w].[ChannelId] IN ('e471e1a8-b5b1-40e9-09b3-08d5bc99b90c', '4e9b5750-683b-40ac-625a-08d5bca76da2', '0ff713fd-03c2-4579-2344-08d5bd3b72c9', '0e674d95-8748-4f21-54d0-08d5bd4b43cf', '892140c1-d433-4256-d9f2-08d5bd60001d') 
+2018-05-21 13:45:03.5859|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[CreateTime], [n].[CreateUserId], [n].[IsDefaultPlay], [n].[IsUpload], [n].[Name], [n].[Url]
+FROM [Videos] AS [n]
+WHERE [n].[IsDefaultPlay] = 1 
+2018-05-21 13:45:03.5859|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2018-05-21 13:45:03.5859|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Index (LiveFactory.Web) in 38.203ms 
+2018-05-21 13:45:03.5859|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 50.603ms 200 text/html; charset=utf-8 
+2018-05-21 13:45:03.9834|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/favicon.ico   
+2018-05-21 13:45:03.9834|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.8043ms 404  
+2018-05-21 13:49:46.6341|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/video   
+2018-05-21 13:49:46.6644|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization failed. 
+2018-05-21 13:49:46.6644|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'. 
+2018-05-21 13:49:46.6644|Microsoft.AspNetCore.Mvc.ChallengeResult|INFO|Executing ChallengeResult with authentication schemes (). 
+2018-05-21 13:49:46.6833|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was challenged. 
+2018-05-21 13:49:46.6833|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.VideoController.Index (LiveFactory.Web) in 44.4564ms 
+2018-05-21 13:49:46.6833|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 50.2769ms 302  
+2018-05-21 13:49:46.6930|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/login/index?ReturnUrl=%2Fvideo   
+2018-05-21 13:49:46.6930|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:49:46.6930|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LoginController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:49:46.8528|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Login/Index.cshtml. 
+2018-05-21 13:49:46.9233|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LoginController.Index (LiveFactory.Web) in 227.1688ms 
+2018-05-21 13:49:46.9233|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 231.1383ms 200 text/html; charset=utf-8 
+2018-05-21 13:49:46.9621|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/bootstrap/dist/css/bootstrap.min.css   
+2018-05-21 13:49:46.9621|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Scripts/jquery.backstretch.min.js   
+2018-05-21 13:49:46.9621|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/ionicons.min.css   
+2018-05-21 13:49:47.0122|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/ionicons.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\ionicons.min.css' 
+2018-05-21 13:49:46.9726|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css' 
+2018-05-21 13:49:46.9726|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/components.css   
+2018-05-21 13:49:47.0122|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/Scripts/jquery.backstretch.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\Scripts\jquery.backstretch.min.js' 
+2018-05-21 13:49:47.0122|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/components.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\components.css' 
+2018-05-21 13:49:46.9726|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/jquery/dist/jquery.min.js   
+2018-05-21 13:49:46.9968|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/font-awesome.min.css   
+2018-05-21 13:49:47.0267|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/font-awesome.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\font-awesome.min.css' 
+2018-05-21 13:49:47.0417|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\jquery\dist\jquery.min.js' 
+2018-05-21 13:49:47.0532|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 84.3818ms 200 text/css 
+2018-05-21 13:49:47.0532|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 86.6304ms 200 application/javascript 
+2018-05-21 13:49:47.0532|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 60.4414ms 200 text/css 
+2018-05-21 13:49:47.0532|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 100.7366ms 200 text/css 
+2018-05-21 13:49:47.0714|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 95.6655ms 200 application/javascript 
+2018-05-21 13:49:47.0868|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 114.1784ms 200 text/css 
+2018-05-21 13:49:47.2174|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/fonts/fontawesome-webfont.woff2?v=4.7.0   
+2018-05-21 13:49:47.2274|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/fonts/fontawesome-webfont.woff2'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\fonts\fontawesome-webfont.woff2' 
+2018-05-21 13:49:47.2274|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 20.0719ms 200 font/woff2 
+2018-05-21 13:49:47.2868|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/bg/bg1.jpg   
+2018-05-21 13:49:47.2868|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/images/bg/bg1.jpg'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\images\bg\bg1.jpg' 
+2018-05-21 13:49:47.2868|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/images/bg/bg2.jpg   
+2018-05-21 13:49:47.2868|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/images/bg/bg2.jpg'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\images\bg\bg2.jpg' 
+2018-05-21 13:49:47.3162|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 28.7952ms 200 image/jpeg 
+2018-05-21 13:49:47.3307|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 40.6817ms 200 image/jpeg 
+2018-05-21 13:49:47.7796|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/favicon.ico   
+2018-05-21 13:49:47.7796|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/favicon.ico'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\favicon.ico' 
+2018-05-21 13:49:47.7874|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 7.7638ms 200 image/x-icon 
+2018-05-21 13:49:48.6705|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Login/Login application/x-www-form-urlencoded; charset=UTF-8 28 
+2018-05-21 13:49:48.6705|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:49:48.8062|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:49:48.8062|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LoginController.Login (LiveFactory.Web) with arguments (LiveFactory.Application.UserDto) - ModelState is Valid 
+2018-05-21 13:49:48.8657|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (25ms) [Parameters=[@__param_Account_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Account], [b].[CreateTime], [b].[CreateUserId], [b].[IsDisabled], [b].[LastIP], [b].[LastTime], [b].[Password]
+FROM [Users] AS [b]
+WHERE [b].[Account] = @__param_Account_0 
+2018-05-21 13:49:48.9296|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies signed in. 
+2018-05-21 13:49:48.9458|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:49:49.0567|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LoginController.Login (LiveFactory.Web) in 338.3337ms 
+2018-05-21 13:49:49.0567|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 387.7063ms 200 application/json; charset=utf-8 
+2018-05-21 13:49:49.0694|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/LiveChannel/index   
+2018-05-21 13:49:49.0875|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:49.0875|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:49.0875|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:49:49.0875|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:49:49.0875|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:49:49.2172|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/LiveChannel/Index.cshtml. 
+2018-05-21 13:49:49.3891|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.Index (LiveFactory.Web) in 298.4794ms 
+2018-05-21 13:49:49.3891|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 320.456ms 200 text/html; charset=utf-8 
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/element/index.css   
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/bootstrap/dist/js/bootstrap.min.js   
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/allskins.min.css   
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/css/AdminLTE.css   
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/AdminLTE.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\AdminLTE.css' 
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/css/allskins.min.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\css\allskins.min.css' 
+2018-05-21 13:49:49.4328|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/element/index.css'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\element\index.css' 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/element/index.js   
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/element/index.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\element\index.js' 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/vue/vue.min.js   
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/vue/vue.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\vue\vue.min.js' 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js' 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.0803ms 200 application/javascript 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 23.731ms 200 text/css 
+2018-05-21 13:49:49.4420|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 23.9899ms 200 text/css 
+2018-05-21 13:49:49.4583|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 25.166ms 200 application/javascript 
+2018-05-21 13:49:49.4583|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Scripts/Product-component.js   
+2018-05-21 13:49:49.4583|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/Scripts/Product-component.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\Scripts\Product-component.js' 
+2018-05-21 13:49:49.4784|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 18.8356ms 200 application/javascript 
+2018-05-21 13:49:49.4784|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 47.8789ms 200 text/css 
+2018-05-21 13:49:49.4911|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 49.0589ms 200 application/javascript 
+2018-05-21 13:49:49.7363|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/element/fonts/element-icons.woff   
+2018-05-21 13:49:49.7363|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/element/fonts/element-icons.woff'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\element\fonts\element-icons.woff' 
+2018-05-21 13:49:49.7382|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1.8521ms 200 application/font-woff 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetLiveChannelPageList application/x-www-form-urlencoded; charset=UTF-8 47 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:49:49.7592|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannelPageList (LiveFactory.Web) with arguments (LiveFactory.Application.LiveChannelSearchDto) - ModelState is Valid 
+2018-05-21 13:49:49.7823|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:49:49.9986|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [LiveChannels] AS [l] 
+2018-05-21 13:49:50.0287|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='Text', CommandTimeout='30']
+SELECT [l].[Id], [l].[BannedVideoLoop], [l].[CreateTime], [l].[CreateUserId], [l].[Disabled], [l].[ErrPlayUrl], [l].[FactoryCode], [l].[FactoryName], [l].[Image], [l].[Index], [l].[LastModifyTime], [l].[LastModifyUserId], [l].[Name], [l].[PlayInterval], [l].[PullInterval], [l].[PushUrl], [l].[State], [l].[VideoId]
+FROM [LiveChannels] AS [l]
+ORDER BY [l].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY 
+2018-05-21 13:49:50.0581|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:49:50.0763|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannelPageList (LiveFactory.Web) in 310.9103ms 
+2018-05-21 13:49:50.0763|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 317.7815ms 200 application/json; charset=utf-8 
+2018-05-21 13:49:50.1101|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/5a4d66f4-cdc1-46e9-94bd-01f02c42076f.jpg   
+2018-05-21 13:49:50.1101|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/d428a4dd-f825-444e-91c0-54d33f88ac58.jpg   
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 5.0295ms 404  
+2018-05-21 13:49:50.1101|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 9.6105ms 404  
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/b8ea7a95-f33a-4277-89c3-0c89fd42dd88.jpg   
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.2656ms 404  
+2018-05-21 13:49:50.1149|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.6117ms 404  
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/44331801-8359-4329-b863-bc4624161423.jpg   
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:49:50.1289|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.0275ms 404  
+2018-05-21 13:54:14.3845|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/LiveChannel   
+2018-05-21 13:54:14.3845|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.3845|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.3845|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:54:14.3845|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:14.3845|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:54:14.3956|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/LiveChannel/Index.cshtml. 
+2018-05-21 13:54:14.3956|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.Index (LiveFactory.Web) in 8.6828ms 
+2018-05-21 13:54:14.3956|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 13.7375ms 200 text/html; charset=utf-8 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetLiveChannelPageList application/x-www-form-urlencoded; charset=UTF-8 47 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannelPageList (LiveFactory.Web) with arguments (LiveFactory.Application.LiveChannelSearchDto) - ModelState is Valid 
+2018-05-21 13:54:14.7709|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:14.7709|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [LiveChannels] AS [l] 
+2018-05-21 13:54:14.7709|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='Text', CommandTimeout='30']
+SELECT [l].[Id], [l].[BannedVideoLoop], [l].[CreateTime], [l].[CreateUserId], [l].[Disabled], [l].[ErrPlayUrl], [l].[FactoryCode], [l].[FactoryName], [l].[Image], [l].[Index], [l].[LastModifyTime], [l].[LastModifyUserId], [l].[Name], [l].[PlayInterval], [l].[PullInterval], [l].[PushUrl], [l].[State], [l].[VideoId]
+FROM [LiveChannels] AS [l]
+ORDER BY [l].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannelPageList (LiveFactory.Web) in 10.388ms 
+2018-05-21 13:54:14.7709|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 13.1588ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/5a4d66f4-cdc1-46e9-94bd-01f02c42076f.jpg   
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.1277ms 404  
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/d428a4dd-f825-444e-91c0-54d33f88ac58.jpg   
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/44331801-8359-4329-b863-bc4624161423.jpg   
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4.3764ms 404  
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.4089ms 404  
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4.4063ms 404  
+2018-05-21 13:54:14.8582|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/b8ea7a95-f33a-4277-89c3-0c89fd42dd88.jpg   
+2018-05-21 13:54:14.8789|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8789|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:14.8789|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 17.4772ms 404  
+2018-05-21 13:54:16.0021|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/UserManage   
+2018-05-21 13:54:16.0021|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.0021|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.0063|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:54:16.0063|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.0063|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.UserManageController.Index (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:54:16.1355|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/UserManage/Index.cshtml. 
+2018-05-21 13:54:16.1355|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.UserManageController.Index (LiveFactory.Web) in 135.0457ms 
+2018-05-21 13:54:16.1355|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 139.785ms 200 text/html; charset=utf-8 
+2018-05-21 13:54:16.3651|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/UserManage/GetList application/x-www-form-urlencoded; charset=UTF-8 47 
+2018-05-21 13:54:16.3651|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:16.3651|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.3651|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.3651|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:54:16.3824|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.3824|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.UserManageController.GetList (LiveFactory.Web) with arguments (LiveFactory.Application.UserSearchDto) - ModelState is Valid 
+2018-05-21 13:54:16.3824|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u] 
+2018-05-21 13:54:16.4000|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[Account], [u].[CreateTime], [u].[CreateUserId], [u].[IsDisabled], [u].[LastIP], [u].[LastTime], [u].[Password]
+FROM [Users] AS [u]
+ORDER BY [u].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY 
+2018-05-21 13:54:16.4194|Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor|INFO|Executing JsonResult, writing value JFJT.Framework.Web.Models.JsonResponse. 
+2018-05-21 13:54:16.4194|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.UserManageController.GetList (LiveFactory.Web) in 52.1014ms 
+2018-05-21 13:54:16.4194|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 59.7322ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:16.6509|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/home/manager   
+2018-05-21 13:54:16.6509|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.6509|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.6509|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.6509|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.Manager (LiveFactory.Web) with arguments ((null)) - ModelState is Valid 
+2018-05-21 13:54:16.7646|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Manager.cshtml. 
+2018-05-21 13:54:16.7710|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.Manager (LiveFactory.Web) in 114.9107ms 
+2018-05-21 13:54:16.7710|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 120.8465ms 200 text/html; charset=utf-8 
+2018-05-21 13:54:16.8062|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/signalr/signalr.js   
+2018-05-21 13:54:16.8062|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/signalr/signalr.js'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\signalr\signalr.js' 
+2018-05-21 13:54:16.8166|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 10.2888ms 200 application/javascript 
+2018-05-21 13:54:16.9389|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/signalrHubs/negotiate text/plain;charset=UTF-8 0 
+2018-05-21 13:54:16.9389|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:16.9389|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9389|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9422|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Home/GetLiveChannelCount application/x-www-form-urlencoded; charset=UTF-8 8 
+2018-05-21 13:54:16.9422|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:16.9422|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9422|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9422|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.9422|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) with arguments (-1) - ModelState is Valid 
+2018-05-21 13:54:16.9565|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [l].[Id], [l].[BannedVideoLoop], [l].[CreateTime], [l].[CreateUserId], [l].[Disabled], [l].[ErrPlayUrl], [l].[FactoryCode], [l].[FactoryName], [l].[Image], [l].[Index], [l].[LastModifyTime], [l].[LastModifyUserId], [l].[Name], [l].[PlayInterval], [l].[PullInterval], [l].[PushUrl], [l].[State], [l].[VideoId]
+FROM [LiveChannels] AS [l] 
+2018-05-21 13:54:16.9565|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:16.9565|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) in 13.2547ms 
+2018-05-21 13:54:16.9565|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 19.208ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Home/GetLiveChannelCount application/x-www-form-urlencoded; charset=UTF-8 7 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9728|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) with arguments (Play) - ModelState is Valid 
+2018-05-21 13:54:16.9728|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 45.9351ms 200 application/json 
+2018-05-21 13:54:16.9898|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (2ms) [Parameters=[@__state_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[BannedVideoLoop], [m].[CreateTime], [m].[CreateUserId], [m].[Disabled], [m].[ErrPlayUrl], [m].[FactoryCode], [m].[FactoryName], [m].[Image], [m].[Index], [m].[LastModifyTime], [m].[LastModifyUserId], [m].[Name], [m].[PlayInterval], [m].[PullInterval], [m].[PushUrl], [m].[State], [m].[VideoId]
+FROM [LiveChannels] AS [m]
+WHERE [m].[State] = @__state_0 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) in 14.8217ms 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 19.5719ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Home/GetLiveChannelCount application/x-www-form-urlencoded; charset=UTF-8 7 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:16.9898|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:16.9898|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) with arguments (Stop) - ModelState is Valid 
+2018-05-21 13:54:17.0057|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[@__state_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[BannedVideoLoop], [m].[CreateTime], [m].[CreateUserId], [m].[Disabled], [m].[ErrPlayUrl], [m].[FactoryCode], [m].[FactoryName], [m].[Image], [m].[Index], [m].[LastModifyTime], [m].[LastModifyUserId], [m].[Name], [m].[PlayInterval], [m].[PullInterval], [m].[PushUrl], [m].[State], [m].[VideoId]
+FROM [LiveChannels] AS [m]
+WHERE [m].[State] = @__state_0 
+2018-05-21 13:54:17.0057|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:17.0057|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) in 8.5887ms 
+2018-05-21 13:54:17.0057|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 11.6472ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Home/GetLiveChannelCount application/x-www-form-urlencoded; charset=UTF-8 7 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.0214|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) with arguments (Abnormal) - ModelState is Valid 
+2018-05-21 13:54:17.0214|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[@__state_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[BannedVideoLoop], [m].[CreateTime], [m].[CreateUserId], [m].[Disabled], [m].[ErrPlayUrl], [m].[FactoryCode], [m].[FactoryName], [m].[Image], [m].[Index], [m].[LastModifyTime], [m].[LastModifyUserId], [m].[Name], [m].[PlayInterval], [m].[PullInterval], [m].[PushUrl], [m].[State], [m].[VideoId]
+FROM [LiveChannels] AS [m]
+WHERE [m].[State] = @__state_0 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.HomeController.GetLiveChannelCount (LiveFactory.Web) in 8.1424ms 
+2018-05-21 13:54:17.0214|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 11.8186ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:17.0400|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetLiveChannels application/x-www-form-urlencoded; charset=UTF-8 8 
+2018-05-21 13:54:17.0400|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:17.0400|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.0400|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.0400|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 13:54:17.0400|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 13:54:17.0518|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannels (LiveFactory.Web) with arguments (LiveFactory.Application.LiveChannelSearchDto) - ModelState is Valid 
+2018-05-21 13:54:17.0518|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [l].[Id], [l].[BannedVideoLoop], [l].[CreateTime], [l].[CreateUserId], [l].[Disabled], [l].[ErrPlayUrl], [l].[FactoryCode], [l].[FactoryName], [l].[Image], [l].[Index], [l].[LastModifyTime], [l].[LastModifyUserId], [l].[Name], [l].[PlayInterval], [l].[PullInterval], [l].[PushUrl], [l].[State], [l].[VideoId]
+FROM [LiveChannels] AS [l] 
+2018-05-21 13:54:17.0518|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 13:54:17.0518|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetLiveChannels (LiveFactory.Web) in 10.0215ms 
+2018-05-21 13:54:17.0518|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 17.723ms 200 application/json; charset=utf-8 
+2018-05-21 13:54:17.0696|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   
+2018-05-21 13:54:17.0696|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|INFO|Sending file. Request path: '/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2'. Physical path: 'E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2' 
+2018-05-21 13:54:17.0875|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 17.8725ms 200 font/woff2 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/signalrHubs?id=EqcL-pB3rw2UlsrR-O4Wdg   
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/d428a4dd-f825-444e-91c0-54d33f88ac58.jpg   
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/5a4d66f4-cdc1-46e9-94bd-01f02c42076f.jpg   
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1132|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.1361ms 404  
+2018-05-21 13:54:17.1040|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 2.4017ms 404  
+2018-05-21 13:54:17.1132|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/44331801-8359-4329-b863-bc4624161423.jpg   
+2018-05-21 13:54:17.1132|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1132|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1132|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.0348ms 404  
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/ea67678f-3b0b-4a23-9a17-c36d62b45d5f.jpg   
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/Uploads/images/2018-05/b8ea7a95-f33a-4277-89c3-0c89fd42dd88.jpg   
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3.6507ms 404  
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 13:54:17.1339|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 7.126ms 404  
+2018-05-21 13:54:17.2716|Microsoft.AspNetCore.SignalR.HubConnectionContext|INFO|Completed connection handshake. Using HubProtocol 'json'. 
+2018-05-21 15:47:26.4321|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:54349/livechannel/detail/0ff713fd-03c2-4579-2344-08d5bd3b72c9   
+2018-05-21 15:47:26.4321|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:26.4321|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:26.4557|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 15:47:26.4634|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 15:47:26.6563|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.Detail (LiveFactory.Web) with arguments (0ff713fd-03c2-4579-2344-08d5bd3b72c9) - ModelState is Valid 
+2018-05-21 15:47:26.9411|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/LiveChannel/Detail.cshtml. 
+2018-05-21 15:47:26.9799|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.Detail (LiveFactory.Web) in 524.7767ms 
+2018-05-21 15:47:26.9799|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 551.044ms 200 text/html; charset=utf-8 
+2018-05-21 15:47:27.0528|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 6789948.6997ms 101  
+2018-05-21 15:47:27.2930|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetModel application/x-www-form-urlencoded; charset=UTF-8 39 
+2018-05-21 15:47:27.2930|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 15:47:27.2930|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.2930|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.2930|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 15:47:27.3013|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 15:47:27.3422|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/Video/GetVideo  0 
+2018-05-21 15:47:27.3422|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 15:47:27.3422|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.3422|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.3497|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 15:47:27.3497|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 15:47:27.4122|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetModel (LiveFactory.Web) with arguments (0ff713fd-03c2-4579-2344-08d5bd3b72c9) - ModelState is Valid 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetPullInfoPageList application/x-www-form-urlencoded; charset=UTF-8 94 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 POST http://localhost:54349/LiveChannel/GetPlayInfoPageList application/x-www-form-urlencoded; charset=UTF-8 94 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|INFO|Policy execution successful. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler|INFO|AuthenticationScheme: Cookies was successfully authenticated. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 15:47:27.4279|Microsoft.AspNetCore.Authorization.DefaultAuthorizationService|INFO|Authorization was successful. 
+2018-05-21 15:47:27.4423|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 15:47:27.4423|Microsoft.EntityFrameworkCore.Infrastructure|INFO|Entity Framework Core 2.0.3-rtm-10026 initialized 'LiveFactoryDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+2018-05-21 15:47:27.5540|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (116ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [l].[Id], [l].[BannedVideoLoop], [l].[CreateTime], [l].[CreateUserId], [l].[Disabled], [l].[ErrPlayUrl], [l].[FactoryCode], [l].[FactoryName], [l].[Image], [l].[Index], [l].[LastModifyTime], [l].[LastModifyUserId], [l].[Name], [l].[PlayInterval], [l].[PullInterval], [l].[PushUrl], [l].[State], [l].[VideoId]
+FROM [LiveChannels] AS [l]
+WHERE [l].[Id] = '0ff713fd-03c2-4579-2344-08d5bd3b72c9' 
+2018-05-21 15:47:27.6825|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 15:47:27.6825|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetModel (LiveFactory.Web) in 384.0935ms 
+2018-05-21 15:47:27.6825|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 391.9015ms 200 application/json; charset=utf-8 
+2018-05-21 15:47:27.7938|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetPlayInfoPageList (LiveFactory.Web) with arguments (LiveFactory.Application.PlayInfoSearchDto) - ModelState is Valid 
+2018-05-21 15:47:27.9132|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.VideoController.GetVideo (LiveFactory.Web) with arguments (LiveFactory.Application.VideoSearchDto) - ModelState is Valid 
+2018-05-21 15:47:27.9132|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (114ms) [Parameters=[@__playInfoSearchDto_ChannelId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [PlayInfos] AS [m]
+WHERE [m].[ChannelId] = @__playInfoSearchDto_ChannelId_0 
+2018-05-21 15:47:28.0334|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (113ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [v].[Id], [v].[CreateTime], [v].[CreateUserId], [v].[IsDefaultPlay], [v].[IsUpload], [v].[Name], [v].[Url]
+FROM [Videos] AS [v] 
+2018-05-21 15:47:28.0334|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (113ms) [Parameters=[@__playInfoSearchDto_ChannelId_0='?', @__p_1='?', @__p_2='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[ChannelId], [m].[CreateTime], [m].[CreateUserId], [m].[Name], [m].[PlayUrl], [m].[Type]
+FROM [PlayInfos] AS [m]
+WHERE [m].[ChannelId] = @__playInfoSearchDto_ChannelId_0
+ORDER BY [m].[Id]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY 
+2018-05-21 15:47:28.1530|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 15:47:28.1530|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 15:47:28.1530|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetPlayInfoPageList (LiveFactory.Web) in 718.4417ms 
+2018-05-21 15:47:28.1530|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 728.9654ms 200 application/json; charset=utf-8 
+2018-05-21 15:47:28.1530|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.VideoController.GetVideo (LiveFactory.Web) in 808.2776ms 
+2018-05-21 15:47:28.1608|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 818.7663ms 200 application/json; charset=utf-8 
+2018-05-21 15:47:28.3757|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method LiveFactory.Web.Controllers.LiveChannelController.GetPullInfoPageList (LiveFactory.Web) with arguments (LiveFactory.Application.PullInfoSearchDto) - ModelState is Valid 
+2018-05-21 15:47:28.4930|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (112ms) [Parameters=[@__pullInfoSearchDto_ChannelId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [PullInfos] AS [m]
+WHERE [m].[ChannelId] = @__pullInfoSearchDto_ChannelId_0 
+2018-05-21 15:47:28.6130|Microsoft.EntityFrameworkCore.Database.Command|INFO|Executed DbCommand (113ms) [Parameters=[@__pullInfoSearchDto_ChannelId_0='?', @__p_1='?', @__p_2='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[ChannelId], [m].[CreateTime], [m].[CreateUserId], [m].[Name], [m].[Type], [m].[Url]
+FROM [PullInfos] AS [m]
+WHERE [m].[ChannelId] = @__pullInfoSearchDto_ChannelId_0
+ORDER BY [m].[Id]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY 
+2018-05-21 15:47:28.7426|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|INFO|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext. 
+2018-05-21 15:47:28.7426|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action LiveFactory.Web.Controllers.LiveChannelController.GetPullInfoPageList (LiveFactory.Web) in 1304.7452ms 
+2018-05-21 15:47:28.7426|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1318.6673ms 200 application/json; charset=utf-8 

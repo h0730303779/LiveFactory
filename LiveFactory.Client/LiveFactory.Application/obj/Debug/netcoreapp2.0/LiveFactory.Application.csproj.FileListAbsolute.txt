@@ -1,0 +1,14 @@
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveFactory.Application.deps.json
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveFactory.Application.dll
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveFactory.Application.pdb
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveCommand.Common.dll
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveFactory.Core.dll
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveCommand.Common.pdb
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\bin\Debug\netcoreapp2.0\LiveFactory.Core.pdb
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.csprojResolveAssemblyReference.cache
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.csproj.CoreCompileInputs.cache
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.AssemblyInfoInputs.cache
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.AssemblyInfo.cs
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.csproj.CopyComplete
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.dll
+E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\obj\Debug\netcoreapp2.0\LiveFactory.Application.pdb

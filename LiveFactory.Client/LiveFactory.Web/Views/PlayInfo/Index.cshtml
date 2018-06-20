@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewData["Title"] = "播放信息管理";
+}
+<section class="content" id="playInfo">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body" v-cloak>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="dataTables_length" id="example1_length">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" class="form-control pull-right" placeholder="关键字" v-model="searchParam.KeyWord">
+
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default" v-on:click="GetData()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editAdvertModel" v-on:click="addModel()"><i class="fa fa-plus"></i> 新增</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <el-table :data="DataList" border>
+                                    <el-table-column prop="name" label="名称"></el-table-column>
+                                    <el-table-column prop="playUrl" label="链接"></el-table-column>
+                                    <el-table-column width="100" prop="type" label="播放类型">
+                                        <template slot-scope="scope">
+                                            <!--scope.row.type-->
+                                            <play-type-text :state="scope.row.type"></play-type-text>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="操作">
+                                        <template slot-scope="scope">
+                                            <el-button size="mini" v-on:click="editModel(scope.row)">
+                                                <i class="fa fa-edit"></i>修改
+                                            </el-button>
+                                            <el-button size="mini" type="danger" v-on:click="deleteModel(scope.row)">
+                                                <i class="fa fa-trash-o"></i>删除
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info"></div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <el-pagination @@current-change="GetData" :current-page.sync="searchParam.PageIndex" :page-size="searchParam.ResultCount" layout="prev, pager, next,total" :total="TotalCount">
+                                    </el-pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <el-dialog title="编辑播放信息"
+               :visible.sync="dialogVisible"
+               width="40%" :before-close="cancelSubmit">
+        <el-form ref="SelectModel" :model="SelectModel" label-width="80px">
+            <el-form-item label="名称">
+                <el-input v-model="SelectModel.name"></el-input>
+            </el-form-item>
+            <el-form-item label="频道">
+               <livechannel-select v-model="SelectModel.channelId"></livechannel-select>
+            </el-form-item>
+            <el-form-item label="播放类型">
+                <play-type v-model="SelectModel.type"></play-type>
+            </el-form-item>
+            <el-form-item label="播放地址">
+                <el-input v-model="SelectModel.playUrl"></el-input>
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button @@click="cancelSubmit">取 消</el-button>
+            <el-button type="primary" @@click="submitModel">确 定</el-button>
+        </span>
+    </el-dialog>
+</section>
+@section scripts{
+    <script>
+        var playInfo = new Vue({
+            el: "#playInfo",
+            data: {
+                searchParam: { KeyWord: "", PageIndex: 1, SkipCount: 1, ResultCount: 30 },
+                DataList: [],
+                SelectModel: {},
+                TotalCount: 0,
+                saveFileUrl: "",
+                dialogVisible: false
+            },
+            methods: {
+                GetData: function () {
+                    $.ajax({
+                        url: "/PlayInfo/GetPlayInfoPageList",
+                        type: "post",
+                        data: playInfo.searchParam,
+                        success: function (res) {
+                            playInfo.DataList = res.data.items;
+                            playInfo.TotalCount = res.data.totalCount;
+                        }
+                    });
+                },
+                addModel: function () {
+                    this.dialogVisible = true;
+                    this.SelectModel = { id: 0, imageUrl: '' };
+                },
+                submitModel: function () {
+                    $.ajax({
+                        url: "/PlayInfo/InsertOrUpdate",
+                        type: "post",
+                        data: playInfo.SelectModel,
+                        success: function (res) {
+                            playInfo.dialogVisible = false;
+                            playInfo.$message({
+                                type: 'success',
+                                message: '执行成功!'
+                            });
+                            playInfo.GetData();
+                        }
+                    });
+                },
+                editModel: function (item) {
+                    this.SelectModel = item;
+                    this.dialogVisible = true;
+                },
+                deleteModel: function (item) {
+                    this.$confirm('您确定要执行操作吗?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: "/PlayInfo/DeleteplayInfoById",
+                            type: "post",
+                            data: { id: item.id },
+                            success: function () {
+                                playInfo.$message({
+                                    type: 'success',
+                                    message: '删除成功!'
+                                });
+                                playInfo.GetData();
+                            }
+                        });
+                    });
+                },
+                cancelSubmit: function () {
+                    this.dialogVisible = false;
+                    this.SelectModel = {};
+                    playInfo.GetData();
+                }
+            }
+        });
+        $(function () {
+            playInfo.GetData();
+        });
+    </script>
+}

@@ -1,0 +1,11 @@
+E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=LiveFactory.Web
+--content-root=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\Admin\Index.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\Home\Index.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\Login\Index.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\MobileHome\Index.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\Shared\_Layout.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\_ViewImports.cshtml
+--file=E:\Project\LiveFactory\LiveFactory.Web\LiveFactory.Web\Views\_ViewStart.cshtml

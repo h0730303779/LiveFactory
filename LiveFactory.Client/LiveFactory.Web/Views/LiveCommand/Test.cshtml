@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Test";
+}
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            User..........<input type="text" id="userInput" />
+            <br />
+            Message...<input type="text" id="messageInput" />
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/signalr/signalr.js"></script>
+<script type="text/javascript">
+    const connection = new signalR.HubConnectionBuilder().withUrl("/signalrHubs").build();
+    connection.on("ReceiveCommand", (message) => {
+        const encodedMsg = " message:  " + message;
+        const li = document.createElement("li");
+        li.textContent = encodedMsg;
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+    document.getElementById("sendButton").addEventListener("click", event => {
+        const user = document.getElementById("userInput").value;
+        const message = document.getElementById("messageInput").value;
+        connection.invoke("SendCommand",message).catch(err => console.error(err.toString()));
+        event.preventDefault();
+    });
+
+    connection.start().catch(err => console.error(err.toString()));
+</script>

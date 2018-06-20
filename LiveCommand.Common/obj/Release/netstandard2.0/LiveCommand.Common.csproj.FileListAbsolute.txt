@@ -1,0 +1,9 @@
+E:\Project\LiveFactory\LiveCommand.Common\bin\Release\netstandard2.0\LiveCommand.Common.deps.json
+E:\Project\LiveFactory\LiveCommand.Common\bin\Release\netstandard2.0\LiveCommand.Common.dll
+E:\Project\LiveFactory\LiveCommand.Common\bin\Release\netstandard2.0\LiveCommand.Common.pdb
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.csprojResolveAssemblyReference.cache
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.csproj.CoreCompileInputs.cache
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.AssemblyInfoInputs.cache
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.AssemblyInfo.cs
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.dll
+E:\Project\LiveFactory\LiveCommand.Common\obj\Release\netstandard2.0\LiveCommand.Common.pdb

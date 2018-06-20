@@ -1,0 +1,503 @@
+﻿@model LiveFactory.Application.LiveChannelDto
+@{
+    ViewData["Title"] = "频道详细信息";
+}
+<section class="content" id="detail">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">基本信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <el-form ref="SelectModel" :model="SelectModel" label-width="80px">
+                            <el-row>
+                                <el-col :span="8">
+                                    <el-form-item label="名称">
+                                        <el-input v-model="SelectModel.name"></el-input>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="工厂名">
+                                        <el-input v-model="SelectModel.factoryName"></el-input>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="工厂代号">
+                                        <el-input v-model="SelectModel.factoryCode"></el-input>
+                                    </el-form-item>
+                                </el-col>
+                            </el-row>
+
+                            <el-row>
+                                <el-col :span="8">
+                                    <el-form-item label="循环播放">
+                                        <el-switch v-model="SelectModel.bannedVideoLoop"></el-switch>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="是否禁用">
+                                        <el-switch v-model="SelectModel.disabled"></el-switch>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="频道排序">
+                                        <el-input-number v-model="SelectModel.index" controls-position="right" :min="1" :max="9999"></el-input-number>
+                                    </el-form-item>
+                                </el-col>
+                            </el-row>
+
+                            <el-row>
+                                <el-col :span="8">
+                                    <el-form-item label="切换间隔">
+                                        <el-time-picker v-model="SelectModel.playInterval" type="fixed-time" placeholder="选择时间">
+                                        </el-time-picker>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="拉流间隔">
+                                        <el-time-picker v-model="SelectModel.pullInterval" type="fixed-time" placeholder="选择时间">
+                                        </el-time-picker>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col :span="8">
+                                    <el-form-item label="错误视频">
+                                        <errvideo-select v-model="SelectModel.errPlayUrl"></errvideo-select>
+                                    </el-form-item>
+                                </el-col>
+                            </el-row>
+                            <el-form-item label="推流地址">
+                                <el-input v-model="SelectModel.pushUrl"></el-input>
+                            </el-form-item>
+                            <el-form-item label="频道描述">
+                                <el-input v-model="SelectModel.channelDesc"></el-input>
+                            </el-form-item>
+                            <el-form-item label="展示图片">
+                                @*<el-upload class="upload-demo"
+                                               drag
+                                               action="/UploadFile/Index"
+                                               :data="{ filetype: '@LiveFactory.Core.FileType.image'}"
+                                               :on-success="uploadSuccess" :on-error="uploadError"
+                                               multiple>
+                                        <i class="el-icon-upload"></i>
+                                        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                                        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
+                                    </el-upload>*@
+                                <ul class="el-upload-list el-upload-list--picture-card" v-if="SelectModel!=null && SelectModel.image!=''">
+                                    <li tabindex="0" class="el-upload-list__item is-success">
+                                        <img :src="SelectModel.image" class="el-upload-list__item-thumbnail">
+                                    </li>
+                                </ul>
+                                <el-upload ref="uploadImage" :show-file-list="false"
+                                           list-type="picture-card"
+                                           action="/UploadFile/Index"
+                                           :data="{ filetype: '@LiveFactory.Core.FileType.image'}"
+                                           :on-success="uploadSuccess" :on-error="uploadError">
+                                    <i class="el-icon-plus"></i>
+                            </el-form-item>
+                        </el-form>
+                        <span slot="footer" class="dialog-footer">
+                            <el-button @@click="cancelSubmit">返回列表</el-button>
+                            <el-button type="primary" @@click="submitModel">确 定</el-button>
+                        </span>
+                    </div>
+                </div>
+                @if (Context.Request.Query["id"].FirstOrDefault() != null || ViewBag.Id != null)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">拉流信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editAdvertModel" v-on:click="pullAddModel()"><i class="fa fa-plus"></i> 新增</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <el-table :data="pullDataList" border>
+                                            <el-table-column prop="name" label="名称"></el-table-column>
+                                            <el-table-column prop="url" label="链接"></el-table-column>
+                                            <el-table-column width="100" prop="type" label="拉流类型">
+                                                <template slot-scope="scope">
+                                                    <!--scope.row.type-->
+                                                    <pull-type-text :state="scope.row.type"></pull-type-text>
+                                                </template>
+                                            </el-table-column>
+                                            <el-table-column label="操作">
+                                                <template slot-scope="scope">
+                                                    <a class="btn btn-default btn-xs" v-on:click="pulleditModel(scope.row)"><i class="fa fa-edit"></i>修改</a>
+                                                    <a class="btn btn-default btn-xs" title="删除" v-on:click="pullDeleteModel(scope.row)"><i class="fa fa-trash-o"></i></a>
+                                                </template>
+                                            </el-table-column>
+                                        </el-table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="dataTables_info"></div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="dataTables_paginate paging_simple_numbers">
+                                            <el-pagination @@current-change="GetPullInfoData" :current-page.sync="pullsearchParam.PageIndex" :page-size="pullsearchParam.ResultCount" layout="prev, pager, next,total" :total="pullTotalCount">
+                                            </el-pagination>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">视频信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <button type="button" class="btn btn-default pull-right" v-on:click="playAddModel()"><i class="fa fa-plus"></i> 新增</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <el-table :data="playDataList" border>
+                                            <el-table-column prop="name" label="名称"></el-table-column>
+                                            <el-table-column prop="playUrl" label="链接"></el-table-column>
+                                            <el-table-column width="100" prop="type" label="播放类型">
+                                                <template slot-scope="scope">
+                                                    <!--scope.row.type-->
+                                                    <play-type-text :state="scope.row.type"></play-type-text>
+                                                </template>
+                                            </el-table-column>
+                                            <el-table-column label="操作">
+                                                <template slot-scope="scope">
+                                                    <a class="btn btn-default btn-xs" v-on:click="playEditModel(scope.row)"><i class="fa fa-edit"></i>修改</a>
+                                                    <a class="btn btn-default btn-xs" title="删除" v-on:click="playDeleteModel(scope.row)"><i class="fa fa-trash-o"></i></a>
+                                                </template>
+                                            </el-table-column>
+                                        </el-table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="dataTables_info"></div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="dataTables_paginate paging_simple_numbers">
+                                            <el-pagination @@current-change="getPlayInfoData" :current-page.sync="playSearchParam.PageIndex" :page-size="playSearchParam.ResultCount" layout="prev, pager, next,total" :total="playTotalCount">
+                                            </el-pagination>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+                    <div class="callout callout-danger">
+                        <h4></h4>
+
+                        <p>
+                            新增频道时候不可以编辑 拉流 视频信息
+                        </p>
+                    </div>
+                }
+            </div>
+            <!-- /.col -->
+        </div>
+
+
+    </div>
+    <el-dialog title="编辑拉流信息"
+               :visible.sync="pulldialogVisible"
+               width="40%" :before-close="pullCancelSubmit">
+        <el-form ref="pullSelectModel" :model="pullSelectModel" label-width="80px">
+            <el-form-item label="名称">
+                <el-input v-model="pullSelectModel.name"></el-input>
+            </el-form-item>
+            <el-form-item label="拉流类型">
+                <pull-type v-model="pullSelectModel.type"></pull-type>
+            </el-form-item>
+            <el-form-item label="拉流地址">
+                <el-input v-model="pullSelectModel.url"></el-input>
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button @@click="pullCancelSubmit">取 消</el-button>
+            <el-button type="primary" @@click="pullsubmitModel">确 定</el-button>
+        </span>
+    </el-dialog>
+
+    <!-- 播放信息 -->
+    <el-dialog title="编辑播放信息"
+               :visible.sync="playdialogVisible"
+               width="40%" :before-close="playCancelSubmit">
+        <el-form ref="SelectModel" :model="playSelectModel" label-width="80px">
+            <el-form-item label="名称">
+                <el-input v-model="playSelectModel.name"></el-input>
+            </el-form-item>
+            <el-form-item label="播放类型">
+                <play-type v-model="playSelectModel.type"></play-type>
+            </el-form-item>
+            <el-form-item label="播放地址">
+                <el-input v-model="playSelectModel.playUrl"></el-input>
+            </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+            <el-button @@click="playCancelSubmit">取 消</el-button>
+            <el-button type="primary" @@click="playSubmitModel">确 定</el-button>
+        </span>
+    </el-dialog>
+</section>
+<style>
+    .el-upload__input {
+        display: none !important;
+    }
+
+    .el-upload-list--picture-card .el-upload-list__item {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    .el-upload--picture-card {
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 50px;
+    }
+</style>
+@section scripts{
+    <script>
+        var detail = new Vue({
+            el: "#detail",
+            data: {
+                pullsearchParam: { KeyWord: "", ChannelId: "@ViewBag.Id", PageIndex: 1, SkipCount: 1, ResultCount: 10 },
+                playSearchParam: { KeyWord: "", ChannelId:"@ViewBag.Id", PageIndex: 1, SkipCount: 1, ResultCount: 10 },
+                pullDataList: [],
+                playDataList: [],
+                pullSelectModel: {},
+                playSelectModel: {},
+                pullTotalCount: 0,
+                playTotalCount:0,
+                pulldialogVisible: false,
+                playdialogVisible: false,
+                ChannelId: "@ViewBag.Id",
+                SelectModel: { image: "", bannedVideoLoop: false, disabled: false, errPlayUrl: "", factoryCode: "", factoryName: "", index: 0, name: "", playInterval: null, pullInterval: null, pushUrl: "", state: 4, videoId: 0, channelDesc:""},
+                oldPlayInterval: null,
+                oldPullInterval: null
+            },
+            created() {
+                if (this.ChannelId != null && this.ChannelId != "") {
+                    this.loaddata();
+                }
+                else {
+
+
+                }
+            },
+            methods: {
+                loaddata() {
+                    $.ajax({
+                        url: "/LiveChannel/GetModel",
+                        type: "post",
+                        data: {id:"@ViewBag.Id"},
+                        success: function (res) {
+                            detail.SelectModel = res.data;
+                        }
+                    });
+                },
+                submitModel: function () {
+                    if (this.SelectModel.playInterval != null && this.SelectModel.playInterval != undefined) {
+                        var dt = new Date(this.SelectModel.playInterval);
+                        this.SelectModel.playInterval = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+                    } else {
+                        this.SelectModel.playInterval = this.oldPlayInterval;
+                    }
+                    if (this.SelectModel.pullInterval != null && this.SelectModel.pullInterval != undefined) {
+                        var dt = new Date(this.SelectModel.pullInterval);
+                        this.SelectModel.pullInterval = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+                    } else {
+                        this.SelectModel.pullInterval = this.oldPullInterval;
+                    }
+                    $.ajax({
+                        url: "/LiveChannel/InsertOrUpdate",
+                        type: "post",
+                        data: detail.SelectModel,
+                        success: function (res) {
+                            detail.dialogVisible = false;
+                            detail.$message({
+                                type: 'success',
+                                message: '执行成功!'
+                            });
+
+                            setTimeout(function () {
+                                window.location.href = "/LiveChannel";
+                            }, 1000);
+                        }
+                    });
+                },
+                cancelSubmit: function () {
+                    window.location.href = "/LiveChannel";
+                },
+                uploadSuccess: function (response, file, fileList) {
+                    this.SelectModel.image = response.data.fileName;
+                    detail.$message({
+                        type: 'success',
+                        message: '上传成功!'
+                    });
+                },
+                uploadError: function (err, file, fileList) {
+                    this.$message({
+                        type: 'error',
+                        message: '上传失败,请检查你的文件类型是否正确.'
+                    })
+                },
+                GetPullInfoData: function () {
+                    $.ajax({
+                        url: "/LiveChannel/GetPullInfoPageList",
+                        type: "post",
+                        data: detail.pullsearchParam,
+                        success: function (res) {
+                            detail.pullDataList = res.data.items;
+                            detail.pullTotalCount = res.data.totalCount;
+                        }
+                    });
+                },
+                getPlayInfoData: function () {
+                    $.ajax({
+                        url: "/LiveChannel/GetPlayInfoPageList",
+                        type: "post",
+                        data: detail.playSearchParam,
+                        success: function (res) {
+                            detail.playDataList = res.data.items;
+                            detail.playTotalCount = res.data.totalCount;
+                        }
+                    });
+                },
+                pullAddModel: function () {
+                    this.pulldialogVisible = true;
+                    this.pullSelectModel = { id: 0 };
+                },
+                playAddModel: function () {
+                    this.playdialogVisible = true;
+                    this.playSelectModel = { id: 0 };
+                },
+                pullsubmitModel: function () {
+                    this.pullSelectModel.channelId = this.ChannelId;
+                    $.ajax({
+                        url: "/PullInfo/InsertOrUpdate",
+                        type: "post",
+                        data: detail.pullSelectModel,
+                        success: function (res) {
+                            if (res.success) {
+                                detail.pulldialogVisible = false;
+                                detail.$message({
+                                    type: 'success',
+                                    message: '执行成功!'
+                                });
+                                detail.GetPullInfoData();
+                            }
+                        }
+                    });
+                },
+                pulleditModel: function (item) {
+                    this.pullSelectModel = item;
+                    this.pulldialogVisible = true;
+                },
+                playEditModel: function (item) {
+                    this.playSelectModel = item;
+                    this.playdialogVisible = true;
+                },
+                pullDeleteModel: function (item) {
+                    this.$confirm('您确定要执行操作吗?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: "/PullInfo/DeletePullInfoById",
+                            type: "post",
+                            data: { id: item.id },
+                            success: function (res) {
+                                if (res.success) {
+                                    detail.$message({
+                                        type: 'success',
+                                        message: '删除成功!'
+                                    });
+                                    detail.GetPullInfoData();
+                                }
+                            }
+                        });
+                    });
+                },
+                playDeleteModel: function (item) {
+                    this.$confirm('您确定要执行操作吗?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        $.ajax({
+                            url: "/PlayInfo/DeletePlayInfoById",
+                            type: "post",
+                            data: { id: item.id },
+                            success: function (res) {
+                                if (res.success) {
+                                    detail.$message({
+                                        type: 'success',
+                                        message: '删除成功!'
+                                    });
+                                    detail.getPlayInfoData();
+                                }
+                            }
+                        });
+                    });
+                },
+                pullCancelSubmit: function () {
+                    this.pulldialogVisible = false;
+                    this.pullpullSelectModel = {};
+                    detail.GetPullInfoData();
+                },
+                playCancelSubmit: function () {
+                    this.playdialogVisible = false;
+                    this.playSelectModel = {};
+                    detail.getPlayInfoData();
+                },
+                playSubmitModel: function () {
+                    this.playSelectModel.channelId = this.ChannelId;
+                    $.ajax({
+                        url: "/PlayInfo/InsertOrUpdate",
+                        type: "post",
+                        data: detail.playSelectModel,
+                        success: function (res) {
+                            if (res.success) {
+                                detail.playdialogVisible = false;
+                                detail.$message({
+                                    type: 'success',
+                                    message: '执行成功!'
+                                });
+                                detail.getPlayInfoData();
+                            }
+                        }
+                    });
+                },
+            }
+        });
+        $(function () {
+            detail.GetPullInfoData();
+            detail.getPlayInfoData();
+        });
+    </script>
+}
+

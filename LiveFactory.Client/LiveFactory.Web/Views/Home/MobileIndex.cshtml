@@ -1,0 +1,185 @@
+﻿@model List<LiveFactory.Application.Dto.LiveChannelWebDto>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>工厂直播</title>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon" />
+    <link href="/css/neplayer.min.css" rel="stylesheet" />
+    <link href="/css//m.css?aasa" rel=stylesheet>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="/js/neplayer.min.js"></script>
+    @*<script>
+            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            } else {
+                window.location.href = "index";
+            }
+        </script>*@
+</head>
+<body>
+    <div id="videoBox">
+        <video id="my-video" class="video-js" x-webkit-airplay="allow" webkit-playsinline controls poster="/images/PlayerLogo.png" preload="auto" data-setup="{}">
+            <source src="http://pullhlsccb28d0c.live.126.net/live/f9dbf6081e784a93938424a80f3dfab7/playlist.m3u8" type="application/x-mpegURL">
+        </video>
+        <span id="videoTXT">最优秀的首饰制作直播工厂</span>
+    </div>
+    <div id="container">
+        <div id="descBox">
+            <span class="txt" id="desc">【压模】用橡胶片把首饰样板夹在其中，将生胶片塞入一个预选的铝框中，并使被压制的样板填满碎胶片，利用热压机在橡胶中压制后，用手术刀按一定技术规则将胶片割开，取出首饰样板就制成了所谓的胶模。</span>
+            <a class="more" id="desc-m">查看更多<i class="market-nav-arrow"></i></a>
+            <a id="desc-d">收起<i class="market-nav-arrow"></i></a>
+        </div>
+        <div id="moreBox">
+            <h3>更多工艺流程直播</h3>
+            <ul id="list">
+                @foreach (var item in Model)
+                {
+                    <li class="item" data-value="@item.PlayUrl" data-desc="@item.ChannelDesc" data-type="@(item.TypeDesc)" data-errurl="@item.ErrPlayUrl" onclick="Playing(this)">
+                        @if (!string.IsNullOrEmpty(item.Image) && item.Image.Length > 0)
+                        {
+                            <img class="img1" src="@item.Image.ToString()" />
+                        }
+                        else
+                        {
+                            <img class="img1" src="/images/share/work.png" />
+                        }
+                        <p class="title">@item.ChannelDesc</p>
+                        <p class="arts">@item.Name</p>
+                        <p class="play">小窗播放</p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div id="tips">
+            <span>我是有底线的</span>
+        </div>
+    </div>
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px'
+        var winW, winH,
+            scrollTop = 0, videoH = 0,
+            touchX, touchY,
+            videoBox = document.getElementById('videoBox');
+
+        window.onload = function () {
+            resize()
+        }
+        function resize() {
+            winW = document.documentElement.clientWidth;
+            winH = document.documentElement.clientHeight;
+            videoH = parseInt(winW / 16 * 9);
+            videoBox.style.height = videoH + 'px';
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px'
+        }
+        window.addEventListener("resize", resize, false);
+
+        window.addEventListener('load', load, false);
+        function load() {
+            var play = neplayer("my-video", {
+                "autoplay": false,
+                "preload": "auto",
+                "loop": true
+            }, function () {
+
+                });
+            Playing("#list .item:eq(0)");
+
+            document.getElementById('desc-m').onclick = function () {
+                this.style.display = 'none';
+                document.getElementById('descBox').style.height = 'auto';
+                document.getElementById('desc-d').style.display = 'block';
+            }
+            document.getElementById('desc-d').onclick = function () {
+                this.style.display = 'none';
+                document.getElementById('descBox').style.height = '';
+                document.getElementById('desc-m').style.display = 'block';
+            }
+            document.body.onscroll = function () {
+                if (document.documentElement && document.documentElement.scrollTop) {
+                    scrollTop = document.documentElement.scrollTop;
+                }
+                else if (document.body) {
+                    scrollTop = document.body.scrollTop;
+                }
+                if (scrollTop > videoH) {
+                    if ($('#videoBox').hasClass('small')) { return; }
+                    $('#container').css('margin-top', videoH + 'px')
+                    $('#videoBox').addClass('small').css({ 'height': videoH * 0.6 + 'px', 'top': '15px', 'right': '5px', 'left': 'auto' });
+                } else {
+                    if (!$('#videoBox').hasClass('small')) { return; }
+                    $('#container').css('margin-top', '0px')      
+                    $('#videoBox').removeClass('small').css({ 'height': videoH + 'px' });
+                }
+            }
+            $('#videoBox').on('touchstart touchmove touchend', touch);
+            function touch(event) {
+                var event = event || window.event;
+                switch (event.type) {
+                    case "touchstart":
+                        touchX = event.originalEvent.targetTouches[0].clientX;
+                        touchY = event.originalEvent.targetTouches[0].clientY;
+                        break;
+                    case "touchend":
+                        break;
+                    case "touchmove":
+                        event.preventDefault();
+                        var newX = event.originalEvent.targetTouches[0].clientX - touchX + $('#videoBox').position().left;
+                        var newY = event.originalEvent.targetTouches[0].clientY - touchY + $('#videoBox').position().top;
+                        if (newX > 5 && winW * 0.6 + newX + 5 < winW) {
+                            $('#videoBox').css({ 'left': newX + 'px' });
+                        }
+                        if (newY > 5 && videoH * 0.6 + newY + 5 < winH) {
+                            $('#videoBox').css({ 'top': newY + 'px' });
+                        }
+                        touchX = event.originalEvent.targetTouches[0].clientX;
+                        touchY = event.originalEvent.targetTouches[0].clientY;
+                        break;
+                }
+            }
+        }
+
+        
+        //var errorCount = 0;
+        function Playing(obj) {
+            var url = $(obj).data("value");
+            var type = $(obj).data("type");
+            var id = $(obj).data("id");
+            var errurl = $(obj).data("errurl");
+            $("#desc").text($(obj).data("desc"));
+            if (typeof (errurl) != "undefined" && errurl.length > 0) {
+                errurl = "@ViewBag.Domain" + "/" + errurl;
+            }
+            else {
+                errurl = "@ViewBag.Domain" + "/" + "@ViewBag.DefaultUrl";
+            }
+            $(".item").removeClass("living");
+            $(obj).addClass("living");
+            play.setDataSource({
+                type: type,
+                src: url
+            });
+            play.play();
+            play.onError(function (err) {
+                //errorCount += 1;
+                if (err.errCode <= 7) {
+                    //if (errorCount > 2) {
+                    //    return;
+                    //}
+                    play.setDataSource({
+                        type: "video/mp4",
+                        src: errurl
+                    });
+                    play.play();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

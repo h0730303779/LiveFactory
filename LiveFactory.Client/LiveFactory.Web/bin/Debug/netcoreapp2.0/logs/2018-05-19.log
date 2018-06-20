@@ -1,0 +1,1 @@
+2018-05-19 16:05:09.5486|Microsoft.AspNetCore.Server.Kestrel|ERROR|Connection id "0HLDTBSUOEB9R", Request id "0HLDTBSUOEB9R:00000001": An unhandled exception was thrown by the application. Writing to the response body is invalid for responses with status code 500.

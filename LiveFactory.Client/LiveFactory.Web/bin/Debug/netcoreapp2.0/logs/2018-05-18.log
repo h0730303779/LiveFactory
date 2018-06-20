@@ -1,0 +1,210 @@
+2018-05-18 10:18:59.6288|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Home/UpdateVideoState] System.InvalidOperationException: The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph(EntityEntryGraphNode node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at JFJT.Framework.Domain.Repositories.Repository`2.AttachIfNot(TEntity entity)
+   at JFJT.Framework.Domain.Repositories.Repository`2.UpdateAsync(TEntity entity)
+   at LiveFactory.Application.LiveChannelService.<InsertOrUpdate>d__6.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\LiveChannel\LiveChannelService.cs:line 71
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at LiveFactory.Web.Controllers.HomeController.<UpdateVideoState>d__10.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\HomeController.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 10:18:59.6466|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 10:22:02.4076|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Home/UpdateVideoState] System.InvalidOperationException: The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph(EntityEntryGraphNode node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at JFJT.Framework.Domain.Repositories.Repository`2.AttachIfNot(TEntity entity)
+   at JFJT.Framework.Domain.Repositories.Repository`2.UpdateAsync(TEntity entity)
+   at LiveFactory.Application.LiveChannelService.<InsertOrUpdate>d__6.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\LiveChannel\LiveChannelService.cs:line 74
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at LiveFactory.Web.Controllers.HomeController.<UpdateVideoState>d__10.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\HomeController.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 10:22:02.4117|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 10:22:39.4489|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Home/UpdateVideoState] System.InvalidOperationException: The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph(EntityEntryGraphNode node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at JFJT.Framework.Domain.Repositories.Repository`2.AttachIfNot(TEntity entity)
+   at JFJT.Framework.Domain.Repositories.Repository`2.UpdateAsync(TEntity entity)
+   at LiveFactory.Application.LiveChannelService.<InsertOrUpdate>d__6.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\LiveChannel\LiveChannelService.cs:line 74
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at LiveFactory.Web.Controllers.HomeController.<UpdateVideoState>d__10.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\HomeController.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 10:22:39.4629|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 11:18:11.5951|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Home/UpdateVideoState] System.InvalidOperationException: The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph(EntityEntryGraphNode node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at JFJT.Framework.Domain.Repositories.Repository`2.AttachIfNot(TEntity entity)
+   at JFJT.Framework.Domain.Repositories.Repository`2.UpdateAsync(TEntity entity)
+   at LiveFactory.Application.LiveChannelService.<InsertOrUpdate>d__6.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Application\LiveChannel\LiveChannelService.cs:line 74
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at LiveFactory.Web.Controllers.HomeController.<UpdateVideoState>d__10.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\HomeController.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 11:18:11.5995|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request The instance of entity type 'LiveChannel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2018-05-18 15:15:02.2956|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 15:15:02.3038|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 15:15:02.4382|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Video/InsertOrUpdate] System.IO.DirectoryNotFoundException: Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.IO.File.InternalReadAllBytes(String path)
+   at System.IO.File.ReadAllBytes(String path)
+   at LiveFactory.Core.QiniuManage.UploadData(String fileName, String fileAddress) in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Core\Common\QiniuManage.cs:line 61
+   at LiveFactory.Web.Controllers.VideoController.UploadQiniu(VideoDto videoDto) in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\VideoController.cs:line 74
+   at LiveFactory.Web.Controllers.VideoController.<InsertOrUpdate>d__7.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\VideoController.cs:line 49
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+2018-05-18 15:15:02.4682|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+2018-05-18 15:15:29.9824|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 15:15:32.0569|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 15:16:26.2498|JFJT.Framework.Web.AppExceptionFilter|ERROR| [Video/InsertOrUpdate] System.IO.DirectoryNotFoundException: Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.IO.File.InternalReadAllBytes(String path)
+   at System.IO.File.ReadAllBytes(String path)
+   at LiveFactory.Core.QiniuManage.UploadData(String fileName, String fileAddress) in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Core\Common\QiniuManage.cs:line 61
+   at LiveFactory.Web.Controllers.VideoController.UploadQiniu(VideoDto videoDto) in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\VideoController.cs:line 74
+   at LiveFactory.Web.Controllers.VideoController.<InsertOrUpdate>d__7.MoveNext() in E:\Project\LiveFactory\LiveFactory.Client\LiveFactory.Web\Controllers\VideoController.cs:line 49
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext() Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+2018-05-18 15:16:26.2867|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request Could not find a part of the path 'E:\Uploads\video\2018-05\22c0064e-12ca-4224-be23-1d2fd4240571.mp4'.
+2018-05-18 15:16:30.6052|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 15:16:32.1567|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 15:17:44.7212|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 15:17:46.4186|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 15:18:26.9285|JFJT.Framework.Utils.LogHelper|DEBUG|{"hash":"Fuq5huCn_Pa0HSsWrMdsYxiUO_Xn","key":"Test"} ---------------------1------------------{"Code":200,"Text":"{\"hash\":\"Fuq5huCn_Pa0HSsWrMdsYxiUO_Xn\",\"key\":\"Test\"}","Data":null,"RefCode":200,"RefText":"[2018-05-18 15:18:19.5164] [FormUpload] Uploaded: #DATA# ==> \"Test\"\n","RefInfo":{"Content-Length":"52","Content-Type":"application/json","Cache-Control":"no-store, must-revalidate, no-cache","Connection":"keep-alive","Date":"Fri, 18 May 2018 07:18:23 GMT","Pragma":"no-cache","Server":"nginx","Access-Control-Allow-Headers":"X-File-Name, X-File-Type, X-File-Size","Access-Control-Allow-Methods":"OPTIONS, HEAD, POST","Access-Control-Allow-Origin":"*","Access-Control-Expose-Headers":"X-Log, X-Reqid","Access-Control-Max-Age":"2592000","X-Content-Type-Options":"nosniff","X-Log":"body:32;0s.ph;0s.put.in:1;0s.put.disk:77;0s.put.out:76;1s.put.in:1;1s.put.disk:75;1s.ph;PFDS:78;PFDS:80;body;BUCKET:9;BUCKET:14;CFGG:15;rdb.g/no such key;DBD/404;v4.get/Document not found;rs4_3.sel:2/not found;rs4_3.ups:2;rwro.upsc:4;RS:113;rs.put:116;rs-upload.putFile:196;UP:238","X-Reqid":"1XUAAOfkzGX9qy8V","X-Svr":"UP"}} 
+2018-05-18 15:18:30.6134|JFJT.Framework.Utils.LogHelper|DEBUG|{"hash":"Fuq5huCn_Pa0HSsWrMdsYxiUO_Xn","key":"Test"} -------------------2--------------------[2018-05-18 15:18:19.5164] [FormUpload] Uploaded: #DATA# ==> "Test"
+ 
+2018-05-18 15:18:32.0821|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:56:04.7899|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:56:04.7899|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 17:56:04.8278|JFJT.Framework.Utils.LogHelper|DEBUG|invalid file ---------------------1------------------{"Code":-3,"Text":"invalid file","Data":null,"RefCode":0,"RefText":"Could not find file 'E:\\Project\\LiveFactory\\LiveFactory.Client\\LiveFactory.Web\\System.Byte[]'.","RefInfo":null} 
+2018-05-18 17:56:04.8278|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:57:51.7303|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:57:54.6253|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 17:59:14.2090|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:59:14.2090|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 
+2018-05-18 17:59:14.3848|JFJT.Framework.Utils.LogHelper|DEBUG| ---------------------1------------------{"Code":0,"Text":null,"Data":null,"RefCode":0,"RefText":"[2018-05-18 17:59:14.3763] [QiniuCSharpSDK/7.3.0 (NET40; Win32NT; 6.2.9200.0)] [HTTP-POST-MPART] Error:  Operation is not supported on this platform. \r\n[2018-05-18 17:59:14.3767] [FormUpload] Failed: code = 0, text = \n","RefInfo":null} 
+2018-05-18 17:59:14.3848|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 17:59:57.2871|JFJT.Framework.Utils.LogHelper|DEBUG|123123213213123 
+2018-05-18 18:00:00.8029|JFJT.Framework.Utils.LogHelper|DEBUG|videoDto 

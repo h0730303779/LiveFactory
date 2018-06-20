@@ -1,0 +1,105 @@
+﻿@model List<LiveFactory.Application.Dto.LiveChannelWebDto>
+@{
+    Layout = null;
+}
+
+
+<link href="~/css/neplayer.min.css" rel="stylesheet" />
+<link href="~/css/jquery.mCustomScrollbar.min.css" rel=stylesheet>
+<link href="~/css/pc.css?123" rel=stylesheet>
+@*<script>
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.location.href = "mobile.html";
+        } else {
+
+        }
+    </script>*@
+
+<body>
+    <div id="topbar"><img id="logo" src="/images/logo.png"></div>
+    <div id="body">
+        <div id="container">
+            <div id="videoBox">
+                <video id="my-video" class="video-js v-tech" x-webkit-airplay="allow" webkit-playsinline controls poster="/images/PlayerLogo.png" preload="auto" data-setup="{}">
+                    <source src="#" class="s-tech" type="video/mp4" id="my-source">
+                </video>
+                <span id="videoTXT">共享工厂<br><small style="font-size: 14px;">最优秀的首饰制作直播工厂</small></span>
+            </div>
+            <div id="moreBox">
+                <ul id="list">
+                    @foreach (var item in Model)
+                    {
+                        <li class="item" data-value="@item.PlayUrl" data-type="@(item.TypeDesc)" data-id="@item.Id" data-errurl="@item.ErrPlayUrl">
+                            <div class="img">
+                                @if (!string.IsNullOrEmpty(item.Image) && item.Image.Length > 0)
+                                {
+                                    <img src="@item.Image.ToString()" />
+                                }
+                                else
+                                {
+                                    <img src="/images/share/work.png" />
+                                }
+                            </div>
+                            <div class="txtwarp">
+                                <p class="txt">
+                                    @item.Name
+                                    <br />
+                                    <span>@item.ChannelDesc</span>
+                                </p>
+                                
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type=text/javascript src="~/js/jquery-1.10.2.min.js"></script>
+    <script type=text/javascript src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type=text/javascript src="~/js/neplayer.min.js"></script>
+    <script>
+        $(function () {
+            $("#moreBox").mCustomScrollbar({ theme: "dark" });
+            $("#list .item").eq(0).click();
+        });
+        var nPlay = neplayer("my-video", {
+            "autoplay": false,
+            "preload": "auto",
+            "loop": true
+
+        }, function () {
+
+        });
+        $("#list").delegate(".item", "click", function () {
+            $('.item').removeClass('living');
+            var _this = $(this);
+            _this.addClass('living');
+            var url = _this.data("value");
+            var type = _this.data("type");
+            var id = _this.data("id");
+            var errurl = _this.data("errurl");
+            if (typeof (errurl) != "undefined" && errurl.length > 0) {
+                errurl = "@ViewBag.Domain" + "/" + errurl;
+            }
+            else {
+                errurl = "@ViewBag.Domain" + "/" + "@ViewBag.DefaultUrl";
+            }
+            nPlay.setDataSource({
+                type: type,
+                src: url
+            });
+            nPlay.play();
+            nPlay.onError(function (err) {
+                if (err.errCode <= 7) {
+
+                    nPlay.setDataSource({
+                        type: "video/mp4",
+                        src: errurl
+                    });
+                    nPlay.play();
+                }
+            });
+        });
+    </script>
+</body>

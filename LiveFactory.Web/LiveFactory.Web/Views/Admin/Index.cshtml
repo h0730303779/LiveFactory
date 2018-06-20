@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "直播管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Css{
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/webuploader.css" rel="stylesheet" />
+    <!-- 引入组件库 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="~/js/webuploader.js"></script>
+}
+
+
+
+<section class="content" id="userApp">
+    <div class="modal fade" id="editAdminUserModel" tabindex="-1" role="dialog" aria-labelledby="editAdminUserModel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="PlayerForm" action="@Url.Action("AddChannles", "Admin")" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="Id" v-model="SelectModel.id">
+                            <label for="recipient-name" class="control-label">名称:</label>
+                            <input type="text" class="form-control" name="Name" v-model="SelectModel.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">直播地址:</label>
+                            <input type="text" class="form-control" name="Url" v-model="SelectModel.url">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">视频类型:</label>
+                            <select name="VideoType" class="form-control" v-model="SelectModel.videoType">
+                                @foreach (KeyValuePair<int, string> item in (Dictionary<int, string>)ViewBag.dict)
+                                {
+                                    <option value="@item.Key">@item.Value</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" class="form-control" name="Image">
+                            <p class="help-block">Example block-level help text here.</p>
+                        </div>
+                        <input type="hidden" id="editState" name="editState" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="submitF()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body" v-cloak>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="dataTables_length" id="example1_length">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="button" class="btn btn-default pull-right" v-on:click="editModel()"><i class="fa fa-plus"></i> 新增</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <template>
+                                <el-table :data="DataList" border>
+                                    <el-table-column type="index"></el-table-column>
+                                    <el-table-column prop="name" label="名称"></el-table-column>
+                                    <el-table-column prop="url" label="直播地址"></el-table-column>
+                                    <el-table-column prop="videoType" label="视频类型">
+                                        <template slot-scope="haha">
+                                            <label v-if="haha.row.videoType===1">@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.mp4)</label>
+                                            <label v-else-if="haha.row.videoType===2">@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.x_flv)</label>
+                                            <label v-else-if="haha.row.videoType===3">@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.flv2)</label>
+                                            <label v-else-if="haha.row.videoType===4">@LiveFactory.Web.Common.VideoType.description(LiveFactory.Web.Common.VideoType.PlayerType.mpegURL)</label>
+                                            <label v-else>error</label>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="图片">
+                                        <template slot-scope="scope">
+                                            <img v-if="scope.row.image!=null && scope.row.image!=''" :src="scope.row.image" alt="..." class="img-thumbnail" style="max-height:120px" />
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="操作">
+                                        <template slot-scope="scope">
+                                            <el-button size="mini" v-on:click="editModel(scope.row,'update')">
+                                                <i class="fa fa-edit"></i>修改
+                                            </el-button>
+                                            <el-button size="mini" type="danger" v-on:click="deleteModel(scope.row)">
+                                                <i class="fa fa-trash-o"></i>删除
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                            </template>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info">@*Showing 1 to 10 of 57 entries*@</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+    </div>
+
+
+    @*@Html.Partial("EditModel")*@
+
+</section>
+@section scripts{
+
+    <script>
+        var userApp = new Vue({
+            el: "#userApp",
+            data: {
+                KeyWord: "",
+                DataList: [],
+                RoleDate: [],
+                SelectModel: {},
+                currentPage: 1,
+                MaxResultCount: 10,
+                TotalCount: 0,
+            },
+            methods: {
+                GetData: function () {
+                    $.ajax({
+                        url: '@Url.Action("GetList", "Admin")',
+                        success: function (result) {
+                            userApp.DataList = result;
+                            @*userApp.TotalCount = @ViewBag.TotalCount;*@
+                        }
+                    })
+                },
+                editModel: function (item, sta) {
+                    if (sta == "update") {
+                        this.SelectModel = item;
+                        $("#editState").val("update")
+                    }
+                    else {
+                        this.SelectModel = {};
+                        $("#editState").val("add")
+                    }
+                    $('#editAdminUserModel').modal('show');
+                },
+                submitF: function (e) {
+                    $("#PlayerForm input:text").each(function (i, obj) {
+                        var editState = $("#editState").val();
+                        if (editState == "add") {
+                            if (obj.value == "") {
+                                alert("非空！");
+                                e.preventDefault();
+                                result;
+                            }
+                        }
+                            $("#PlayerForm").submit();
+                    })
+                },
+                deleteModel: function (item) {
+                    var r = confirm("您确定要执行操作吗?");
+                    if (r) {
+                    $.ajax({
+                        url: '@Url.Action("Delete", "Admin")',
+                        data: { id: item.id },
+                        success: function (result) {
+                            location.reload();
+                        }
+                    })
+                    }
+                },
+                deleteImage: function () {
+                    this.SelectModel.imageUrl = "";
+                },
+            }
+        });
+        $(function () {
+            userApp.GetData();
+        })
+
+    </script>
+}

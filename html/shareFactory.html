@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>零烦恼</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="keywords" content="" />
+    <meta http-equiv="description" content="" />
+    <link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="Css/share.css" />
+    <link type="text/css" rel="stylesheet" href="Css/common.css" />
+   <script src="js/html5media.min.js"></script>    
+    <script src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+   <div class="title">
+       <p class="name">共享工厂</p>
+       <div class="border"></div>
+       <p class="poster">最优秀的首饰制作直播平台</p>
+   </div>
+   <div id="video_main">
+       <div class="top">
+         <video src="http://www.runoob.com/try/demo_source/movie.mp4" class="v-tech" controls  autobuffer>
+             <source src="http://www.runoob.com/try/demo_source/movie.mp4" class="s-tech" type="video/mp4">
+         </video>
+       </div>
+       <div class="bottom clearfix">
+          <div class="list curr" data-value="http://www.runoob.com/try/demo_source/movie.mp4">
+             <img class="list-img" src="Images/share/work.png" />
+             <p class="prowork">雕蜡</p>
+          </div>
+           <div class="list" data-value="http://www.runoob.com/try/demo_source/movie.mp4">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">电绘</p>
+           </div>
+           <div class="list" data-value="http://www.runoob.com/try/demo_source/movie.mp4">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">喷蜡</p>
+           </div>
+           <div class="list" data-value="">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">倒银</p>
+           </div>
+           <div class="list">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">执银版</p>
+           </div>
+           <div class="list">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">压胶膜</p>
+           </div>
+           <div class="list">
+               <img class="list-img" src="Images/share/work.png" />
+               <p class="prowork">蜡版</p>
+           </div>
+       </div>
+   </div>
+</div>
+<script>
+    $(function () {
+        $(".bottom .list").click(function () {
+            $(this).siblings().removeClass("curr");
+            $(this).addClass("curr");
+            var _url = $(this).attr("data-value");
+            $(".v-tech").attr("src", _url);
+            $(".s-tech").attr("src", _url);
+        });
+    })
+</script>
+</body>
+</html>

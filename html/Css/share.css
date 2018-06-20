@@ -1,0 +1,27 @@
+body { }
+header { width: 100%; height: 66px; background: -moz-linear-gradient(left, #152998 0%, #3a68f1 100%); background: -webkit-gradient(linear, left, right, color-stop(0%,#152998), color-stop(100%,#3a68f1)); background: -webkit-linear-gradient(left, #152998 0%,#3a68f1 100%); background: -o-linear-gradient(left, #152998 0%,#3a68f1 100%); background: -ms-linear-gradient(left, #152998 0%,#3a68f1 100%); background: linear-gradient(to right, #152998 0%,#3a68f1 100%); }
+.container { width: 1000px; margin: 20px auto 0; }
+.title { text-align: center; padding-bottom: 20px; }
+.title .name { color: #333; font-size: 18px; font-weight: bold; }
+.title .border { width: 15px; height: 1px; margin: 14px auto 11px; background: #3966ee; }
+.poster { color: #999; font-size: 14px; }
+.top { width: 1000px; height: 550px; }
+.v-tech { width: 1000px; height: 550px; }
+video::-internal-media-controls-download-button { display: none; }
+video::-webkit-media-controls-enclosure { overflow: hidden; }
+video::-webkit-media-controls-panel { width: calc(100% + 30px); }
+.list { float:left; display: inline-block; width: 132px; height: 152px;text-align:center; margin-right:9px;margin-top:30px; -moz-box-shadow: 0 5px 10px rgba(0,0,0,.1); -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.1); box-shadow: 0 5px 10px rgba(0,0,0,.1); }
+.list:last-child{margin-right:0;}
+.list-img{margin-top:-10px; border-radius:5px;width:116px;height:120px;}
+.prowork{font-size:14px;color:#333;text-align:center;line-height:32px;}
+.list.curr{width:153px;height:173px;margin-top:18px; -moz-box-shadow: -1px 5px 10px rgba(0,0,0,.3); -webkit-box-shadow: -1px 5px 10px rgba(0,0,0,.3); box-shadow: -1px 5px 10px rgba(0,0,0,.3);}
+.list.curr .list-img{width:138px;height:138px;}
+
+/*mobile*/
+.mcontainer {width:100%;padding-top:20px;}
+.titleDiv{font-size:30px;color:#333;padding:0 25px;height:88px;line-height:88px;text-align:center;}
+.video_bac{background: url("../Images/share/voide.png") no-repeat left 25px center;background-size:40px; }
+.video_list{background: url("../Images/share/list.png") no-repeat left 25px center;background-size:40px; padding-top:20px;}
+.video-main video {width: 100%;}
+.video-item{width:100%;}
+.swiper-container{width:100%;height:350px;}

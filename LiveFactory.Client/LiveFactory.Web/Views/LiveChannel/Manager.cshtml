@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "管理主页";
+}
+<style>
+    .gray {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: gray;
+    }
+    .btn
+</style>
+<section class="content" id="manager">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-play-circle"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">所有频道</span>
+                    <span class="info-box-number"><a href="#">{{allChannel}}</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-play"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">播放频道</span>
+                    <span class="info-box-number"><a>{{playChannel}}</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pause"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">暂停频道</span>
+                    <span class="info-box-number"><a>{{stopChannel}}</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-stop"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">异常频道</span>
+                    <span class="info-box-number"><a>{{abnormalChannel}}</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body" v-cloak>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="dataTables_length" id="example1_length">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" class="form-control pull-right" placeholder="关键字" v-model="keyWord">
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default" v-on:click="getLiveChannelAll()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <a href="/livechannel" target="_blank" class="btn btn-default pull-right"><i class="fa fa-plus"></i>新增频道</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3" v-for="item in liveChannel">
+                                <div class="thumbnail">
+                                    <img style="height:140px;" :src="item.image" alt="频道图片" :class="item.style" @@click="detail(item)">
+                                    <div class="caption">
+                                        <h4>频道名称：{{item.name}}</h4>
+                                        <h5 v-if="item.state==2">运行状态：<i style="color:#7CCD7C" class="glyphicon glyphicon-triangle-right"></i></h5>
+                                        <h5 v-else>运行状态：<i style="color:red" class="glyphicon glyphicon-stop"></i></h5>
+                                        <p id="commandBtn" >
+                                            <button v-if="item.state==4" v-bind:disabled="item.isDisabled"  @@click="commandOpcation(item,1)" class="btn btn-primary" role="button">启动</button>
+                                            <button v-if="item.state==2" v-bind:disabled="item.isDisabled" @@click="commandOpcation(item,0)" class="btn btn-default" role="button">停止</button>
+                                            <button v-if="item.state==2||item.state==3||item.state==4||item.state==10" v-bind:disabled="item.isDisabled" @@click="commandOpcation(item,2)" class="btn btn-default" role="button">重启</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+</section>
+@section scripts{
+    <script src="~/lib/signalr/signalr.js"></script>
+
+    <script>
+        $(function () {
+            manager.onLoad();
+        });
+        var manager = new Vue({
+            el: "#manager",
+            data: {
+                keyWord: "",
+                allChannel: 0,
+                playChannel: 0,
+                stopChannel: 0,
+                abnormalChannel: 0,
+                liveChannel: [],
+                commandData: { Id: 0, CommandType: 0 },
+                selectedModel: {}
+            },
+            methods: {
+                onLoad: function () {
+                    this.allChannel = this.getLiveChannelCount(-1);
+                    this.playChannel = this.getLiveChannelCount("@((int)LiveCommand.Common.LiveStateType.Pushing)");
+                    this.stopChannel = this.getLiveChannelCount("@((int)LiveCommand.Common.LiveStateType.Stoped)");
+                    this.abnormalChannel = this.getLiveChannelCount("@((int)LiveCommand.Common.LiveStateType.Error)");
+                    this.getLiveChannelAll();
+                },
+                getLiveChannelCount: function (state) {
+                    var result = 0;
+                    $.ajax({
+                        url: "/LiveChannel/GetLiveChannelCount",
+                        type: "post",
+                        data: { state },
+                        async: false,
+                        success: function (res) {
+                            result = res.data;
+                        }
+                    });
+                    return result;
+                },
+                getLiveChannelAll: function () {
+                    $.ajax({
+                        url: "/LiveChannel/GetLiveChannels",
+                        type: "post",
+                        data: { KeyWord: manager.keyWord },
+                        success: function (res) {
+                            manager.liveChannel = res.data;
+                        }
+                    });
+                },
+                detail: function (item) {
+                    window.location.href = "/livechannel/detail/" + item.id;
+                },
+                commandOpcation: function (item, state, event) {
+                    item.isDisabled = true;
+                    this.commandData.Id = item.id;
+                    this.commandData.CommandType = state;
+                    $.ajax({
+                        url: "/LiveCommand/Command",
+                        type: "post",
+                        data: manager.commandData,
+                        success: function (res) {
+                            manager.$message('命令执行结果：' + res.data);
+                        }
+                    });
+                },
+                getChannelById: function (id) {
+                    $.each(manager.liveChannel, function (index, item) {
+                        if (item.id == id) {
+                            manager.selectedModel = item;
+                            return manager.selectedModel;
+                        }
+                    });
+                    return manager.selectedModel;
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        const connection = new signalR.HubConnectionBuilder().withUrl("/signalrHubs").build();
+        connection.on("ReceiveCommand", (message) => {
+            var item = JSON.parse(message);
+            console.log(item);
+            var model = manager.getChannelById(item.ChanneId);
+            if (model != undefined && model != null) {
+                //状态断线的话
+                if (item.State == 10) { 
+                    model.style = "gray";
+                    manager.$alert('工厂名为：' + model.factoryName + "的频道长时间失去联系！", '异常提醒', {
+                        confirmButtonText: '确定',
+                    });
+                }
+                if (item.State == 3) {
+                    manager.$message.error('工厂名为：' + model.factoryName + "的频道推流异常！");
+                }
+                if (item.State == 4) {
+                    manager.$message.error('工厂名为：' + model.factoryName + "的频道停止推流！");
+                }
+                model.state = item.State;
+                model.isDisabled = false;
+            }
+        });
+        connection.start().catch(err => console.error(err.toString()));
+    </script>
+}

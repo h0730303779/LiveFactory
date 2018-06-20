@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>零烦恼</title>
+    <meta charset="utf-8" />
+    <meta id="eqMobileViewport" name="viewport" content="width=750, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="keywords" content="" />
+    <meta http-equiv="description" content="" />
+    <link rel="shortcut icon" href="/Images/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="Css/share.css" />
+    <link type="text/css" rel="stylesheet" href="Css/common.css" />
+	 <link type="text/css" rel="stylesheet" href="Css/swiper.min.css" />
+    <script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<style>
+			.swiper-container{
+				height: 400px;
+			}
+			.swiper-slide .img-warp{
+				height: 280px;
+				width: 260px;
+				margin-top: 75px;
+				-moz-box-shadow: 0 2px 10px 0 rgba(0,0,0,.1); -webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,.1); box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+			}
+			.swiper-slide .prowork{
+			   font-size:26px;
+			   line-height:50px;
+			}
+			.swiper-slide .img-warp .img1{
+				height: 235px;
+				width: 235px;
+				margin: 13px;
+				margin-top: -25px;
+    		border-radius: 10px;
+			}
+			.swiper-slide-active .img-warp{
+				transition: all 0.3s;
+				transform: scale(1.15);
+				-moz-box-shadow: 0 2px 10px 0  rgba(212, 221, 251, 0.86); -webkit-box-shadow: 0 2px 10px 0  rgba(212, 221, 251, 0.86); box-shadow: 0 2px 10px 0  rgba(212, 221, 251, 0.86);
+			}
+		.swiper-slide-prev{
+      transform: translate(-30%,0)
+    }
+    .swiper-slide-next{
+      transform: translate(30%,0)
+    }
+    
+		</style>
+	</style>
+</head>
+<body>
+   <div class="mcontainer">
+        <p class="titleDiv video_bac">最优秀的首饰制作直播平台</p>
+        <div class="video-main">
+		    <video id="hVideo" palysinline="" src="http://p5xofhva2.bkt.clouddn.com/hbscd.mp4&#10;" controls="controls" preload="true" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"></video>
+		</div>
+		 <p class="titleDiv video_list"></p>
+		 <div class="video-item">
+		     <div class="swiper-container">
+				  <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="img-warp" data-value="http://p5xofhva2.bkt.clouddn.com/bx.mp4">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">雕蜡</p>
+						</div>        
+					</div>
+					<div class="swiper-slide" >
+					  <div class="img-warp" data-value="http://p5xofhva2.bkt.clouddn.com/bskc.mp4">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">电绘</p>
+						</div>
+					</div>
+					<div class="swiper-slide" >
+					  <div class="img-warp" data-value="http://p5xofhva2.bkt.clouddn.com/180421011.mp4">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">喷蜡</p>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="img-warp">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">倒银</p>
+						</div>        
+					</div>
+					<div class="swiper-slide">
+					  <div class="img-warp">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">执银版</p>
+						</div>
+					</div>
+					<div class="swiper-slide">
+					  <div class="img-warp">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">压胶膜</p>
+						</div>
+					</div>
+					<div class="swiper-slide">
+					  <div class="img-warp">
+								<img class="img1" src="Images/share/work.png" />
+								<p class="prowork">蜡版</p>
+						</div>
+					</div>
+				   </div>
+			</div>
+		 </div>
+   </div>
+    <script>
+	  var mySwiper = new Swiper('.swiper-container',{
+		centeredSlides: true,
+		slidesPerView: 3,
+		watchActiveIndex: true,
+		 loop: true
+		
+	  })
+	   $(function () {
+        $(".img-warp").click(function () {
+             var _url = $(this).attr("data-value");
+            $("#hVideo").attr("src", _url);
+         });
+    })
+  </script>
+</body>
+</html>

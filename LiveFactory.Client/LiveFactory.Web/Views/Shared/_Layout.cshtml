@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/AdminLTE.css" rel="stylesheet" />
+    <link href="~/css/allskins.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/lib/element/index.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/vue/vue.min.js"></script>
+    <script src="~/lib/element/index.js"></script>
+    <script src="~/Scripts/Product-component.js"></script>
+    @RenderSection("Css", required: false)
+</head>
+<body class="hold-transition skin-blue sidebar-mini" >
+    <div class="wrapper">
+        @*头部*@
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="/" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>佳峰</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>佳峰</b>直播后台管理</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a  class="btn btn-primary btn-xs"  href="/Login/LoginOut"><i class="icon-key"></i>退出登录</a></li>
+                        @*头部右上角菜单*@
+                        @*@Html.Partial("_TopRightMenu")*@
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @*头部End*@
+
+        @*菜单*@
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left info">
+                        <p></p>
+                        <a></a>
+                    </div>
+                </div>
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">系统导航</li>
+                    <li class="treeview">
+                        <a href="/home" target="_blank">
+                            <i class="fa fa-dashboard"></i> <span>前台主页</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="/LiveChannel/manager">
+                            <i class="fa fa-dashboard"></i> <span>管理主页</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="/LiveChannel/index">
+                            <i class="fa fa-circle-o"></i> <span>频道管理</span>
+                        </a>
+                    </li>
+                    @*<li class="treeview">
+                        <a href="/PlayInfo">
+                            <i class="fa fa-circle-o"></i> <span>播放信息管理</span>
+                        </a>
+                    </li>*@
+                    <li class="treeview">
+                        <a href="/Video">
+                            <i class="fa fa-circle-o"></i> <span>视频播放管理</span>
+                        </a>
+                    </li>
+                    @*<li class="treeview">
+                        <a href="/PullInfo">
+                            <i class="fa fa-circle-o"></i> <span>拉流信息</span>
+                        </a>
+                    </li>*@
+                    <li class="treeview">
+                        <a href="/UserManage">
+                            <i class="fa fa-circle-o"></i> <span>用户管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        @*菜单结束*@
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <section class="content-header">
+                <h1>@ViewBag.Title</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+                    <li><a class="active">@ViewBag.Title</a></li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            @RenderBody()
+            <!-- /.row -->
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b>
+            </div>
+            <strong>版权所有 佳峰集团 &copy; 2014-2016 <a href="#">前台</a></strong>
+            reserved.
+        </footer>
+        <!-- Control Sidebar -->
+        <div id="_imgshowBig" class="el-dialog__wrapper" style="z-index: 999999999;display:none">
+            <div class="el-dialog" style="margin-top: 15vh;">
+                <div class="el-dialog__header">
+                    <span class="el-dialog__title"></span>
+                    <button type="button" aria-label="Close" class="el-dialog__headerbtn" onclick="$('#_imgshowBig').hide()"><i class="el-dialog__close el-icon el-icon-close"></i></button>
+                </div>
+                <div class="el-dialog__body"><img id="_imgshowBig_img" width="100%" alt="" src=""></div><!---->
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
